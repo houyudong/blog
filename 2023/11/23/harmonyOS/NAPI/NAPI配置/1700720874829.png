@@ -1,0 +1,12 @@
+#ifndef MyNapi_add_H
+#define MyNapi_add_H
+#include "define.h"
+
+namespace NAMESPACE_ALGOLIB{
+    class AlgoAdd{
+        public:
+            double Add(double a,double b);
+    };
+}
+
+#endif //MyNapi_add_H
