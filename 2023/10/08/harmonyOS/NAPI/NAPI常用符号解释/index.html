@@ -1,0 +1,329 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>NativeAPI 常用符号解释 | East'blog</title><meta name="author" content="侯玉东"><meta name="copyright" content="侯玉东"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="js与C++互调">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NativeAPI 常用符号解释">
+<meta property="og:url" content="https://houyudong1989.gitee.io/blog/2023/10/08/harmonyOS/NAPI/NAPI%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7%E8%A7%A3%E9%87%8A/index.html">
+<meta property="og:site_name" content="East&#39;blog">
+<meta property="og:description" content="js与C++互调">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://houyudong1989.gitee.io/blog/img/library1.jpeg">
+<meta property="article:published_time" content="2023-10-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-11-28T09:39:50.863Z">
+<meta property="article:author" content="侯玉东">
+<meta property="article:tag" content="harmonyOS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://houyudong1989.gitee.io/blog/img/library1.jpeg"><link rel="shortcut icon" href="/blog/img/head.jpg"><link rel="canonical" href="https://houyudong1989.gitee.io/blog/2023/10/08/harmonyOS/NAPI/NAPI%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7%E8%A7%A3%E9%87%8A/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'NativeAPI 常用符号解释',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2023-11-28 17:39:50'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/blog/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/blog/img/library4.jpeg')"><nav id="nav"><span id="blog-info"><a href="/blog/" title="East'blog"><img class="site-icon" src="/blog/img/head.jpg"/><span class="site-name">East'blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">NativeAPI 常用符号解释</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-07T16:00:00.000Z" title="发表于 2023-10-08 00:00:00">2023-10-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-28T09:39:50.863Z" title="更新于 2023-11-28 17:39:50">2023-11-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/blog/categories/harmonyOS/">harmonyOS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="NativeAPI 常用符号解释"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>napi_env</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">napi_env 用于表示底层 N-API 的上下文 实现可用于持久保存特定于 VM 的状态。传递此结构调用本机函数时，必须将其传回 进行 N-API 调用。具体来说,相同的napi_env当调用的初始本机函数必须传递给任何后续函数嵌套的 N-API调用。缓存napi_env出于一般再利用的目的，并通过napi_env在运行的同一插件的实例之间不同 Worker不允许使用线程。这napi_env变为无效,当卸载原生插件的实例时。此事件的通知是通过提供给napi_add_env_cleanup_hook 和 napi_set_instance_data。 </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_value</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个不透明的指针，用于表示JavaScript值。 </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_callback_info</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">传递给回调函数的不透明数据类型。它可用于获取有关回调所在的上下文的其他信息调用。 </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_callback</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户提供的本机函数的函数指针类型，这些函数是通过 N-API 向 JavaScript 公开。回调函数应满足以下签名： </span><br><span class="line">typedef napi_value (*napi_callback)(napi_env, napi_callback_info);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_status</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"> 指示 N-API 调用成功或失败的完整状态代码。 目前支持以下状态码。 </span><br><span class="line"> typedef enum &#123;</span><br><span class="line">    napi_ok,</span><br><span class="line">    napi_invalid_arg,</span><br><span class="line">    napi_object_expected,</span><br><span class="line">    napi_string_expected,</span><br><span class="line">    napi_name_expected,</span><br><span class="line">    napi_function_expected,</span><br><span class="line">    napi_number_expected,</span><br><span class="line">    napi_boolean_expected,</span><br><span class="line">    napi_array_expected,</span><br><span class="line">    napi_generic_failure,</span><br><span class="line">    napi_pending_exception,</span><br><span class="line">    napi_cancelled,</span><br><span class="line">    napi_escape_called_twice,</span><br><span class="line">    napi_handle_scope_mismatch,</span><br><span class="line">    napi_callback_scope_mismatch,</span><br><span class="line">    napi_queue_full,</span><br><span class="line">    napi_closing,</span><br><span class="line">    napi_bigint_expected,</span><br><span class="line">    napi_date_expected,</span><br><span class="line">    napi_arraybuffer_expected,</span><br><span class="line">    napi_detachable_arraybuffer_expected,</span><br><span class="line">    napi_would_deadlock,  /* unused */</span><br><span class="line">&#125; napi_status;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_threadsafe_function</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个不透明的指针，表示一个 JavaScript 函数，可以是从多个线程异步调用，通过 napi_call_threadsafe_function()。 </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_threadsafe_function_release_mode</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">要赋予的值 napi_release_threadsafe_function() 指示是否线程安全功能将立即关闭 （ napi_tsfn_abort） 或仅发布（ napi_tsfn_release），因此可通过以下方式进行后续使用 napi_acquire_threadsafe_function() 和 napi_call_threadsafe_function()。 </span><br><span class="line">typedef enum &#123;</span><br><span class="line">  napi_tsfn_release,</span><br><span class="line">  napi_tsfn_abort</span><br><span class="line">&#125; napi_threadsafe_function_release_mode;</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_threadsafe_function_call_mode</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> 要赋予的值 napi_call_threadsafe_function() 指示是否每当队列与线程安全关联时，调用都应阻塞功能已满。 </span><br><span class="line"> typedef enum &#123;</span><br><span class="line">  napi_tsfn_nonblocking,</span><br><span class="line">  napi_tsfn_blocking</span><br><span class="line">&#125; napi_threadsafe_function_call_mode;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_throw_error</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> NAPI_EXTERN napi_status napi_throw_error(napi_env env,</span><br><span class="line">                                         const char* code,</span><br><span class="line">                                         const char* msg);</span><br><span class="line"></span><br><span class="line">   * [in] env：调用 API 的环境。</span><br><span class="line">   * [in] code：要在错误上设置的可选错误代码。</span><br><span class="line">   * [in] msg：表示要与错误关联的文本的 C 字符串。</span><br><span class="line">返回 napi_ok 如果 API 成功。</span><br><span class="line">此 API 抛出一个 JavaScript Error 替换为提供的文本。 </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_typeof</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">napi_status napi_typeof(napi_env env, napi_value value, napi_valuetype* result)</span><br><span class="line"></span><br><span class="line">   * [in] env：调用 API 的环境。</span><br><span class="line">   * [in] value：要查询其类型的 JavaScript 值。</span><br><span class="line">   * [out] result：JavaScript 值的类型。</span><br><span class="line"></span><br><span class="line">返回 napi_ok 如果 API 成功。</span><br><span class="line">    napi_invalid_arg value的类型是否为已知的 ECMAScript 类型，并且value不是外部值。</span><br><span class="line"></span><br><span class="line">此 API 表示的行为类似于在对象上调用 typeof Operator，如 ECMAScript 语言规范第 12.5.5 节中所定义。但是，存在一些差异：</span><br><span class="line"></span><br><span class="line">    它支持检测外部值。</span><br><span class="line">    它将 null 检测为单独的类型，而 ECMAScript typeof 将检测object。</span><br><span class="line"></span><br><span class="line">如果 value 的类型无效，则返回错误。</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_is_array</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"> napi_status napi_is_array(napi_env env, napi_value value, bool* result)</span><br><span class="line"></span><br><span class="line">   * [in] env：调用 API 的环境。</span><br><span class="line">   * [in] value：要检查的 JavaScript 值。</span><br><span class="line">   * [out] result：给定对象是否为数组。</span><br><span class="line"></span><br><span class="line">如果 API 成功，则返回napi_ok。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_is_arraybuffer</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">napi_status napi_is_arraybuffer(napi_env env, napi_value value, bool* result)</span><br><span class="line"></span><br><span class="line">   * [in] env：调用 API 的环境。</span><br><span class="line">   * [in] value：要检查的 JavaScript 值。</span><br><span class="line">   * [out] result：给定对象是否为 ArrayBuffer。</span><br><span class="line"></span><br><span class="line">如果 API 成功，则返回napi_ok。</span><br><span class="line"></span><br><span class="line">此 API 检查传入Object 是否为数组缓冲区。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_is_date</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">napi_status napi_is_date(napi_env env, napi_value value, bool* result)</span><br><span class="line"></span><br><span class="line">   * [in] env：调用 API 的环境。</span><br><span class="line">   * [in] value：要检查的 JavaScript 值。</span><br><span class="line">   * [out] result：给定napi_value是否表示 JavaScript Date 对象。</span><br><span class="line"></span><br><span class="line">如果 API 成功，则返回napi_ok。</span><br><span class="line">此 API 检查传入Object 是否为日期。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_strict_equals</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">napi_status napi_strict_equals(napi_env env,</span><br><span class="line">                               napi_value lhs,</span><br><span class="line">                               napi_value rhs,</span><br><span class="line">                               bool* result)</span><br><span class="line"></span><br><span class="line">   * [in] env：调用 API 的环境。</span><br><span class="line">   * [in] lhs：要检查的 JavaScript 值。</span><br><span class="line">   * [in] rhs：要检查的 JavaScript 值。</span><br><span class="line">   * [out] result：两个napi_value对象是否相等。</span><br><span class="line"></span><br><span class="line">如果 API 成功，则返回napi_ok。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_get_array_length</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">napi_status napi_get_array_length(napi_env env,</span><br><span class="line">                                  napi_value value,</span><br><span class="line">                                  uint32_t* result)</span><br><span class="line"></span><br><span class="line">   * [in] env：调用 API 的环境。</span><br><span class="line">   * [in] value：napi_value表示正在查询其长度的 JavaScript Array。</span><br><span class="line">   * [out] result：uint32 表示数组的长度。</span><br><span class="line"></span><br><span class="line">如果 API 成功，则返回napi_ok。</span><br><span class="line"></span><br><span class="line">此 API 返回数组的长度。</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_get_value_double</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">napi_status napi_get_value_double(napi_env env,</span><br><span class="line">                                  napi_value value,</span><br><span class="line">                                  double* result)</span><br><span class="line"></span><br><span class="line">   * [in] env：调用 API 的环境。</span><br><span class="line">   * [in] value：表示 JavaScript Numbernapi_value。</span><br><span class="line">   * [out] result：给定 JavaScript Number的 C 双原语等价物 。</span><br><span class="line"></span><br><span class="line">如果 API 成功，则返回napi_ok。如果传入非数字 napi_value，则返回napi_number_expected。 </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>napi_get_cb_info</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">napi_status napi_get_cb_info(napi_env env,</span><br><span class="line">                             napi_callback_info cbinfo,</span><br><span class="line">                             size_t* argc,</span><br><span class="line">                             napi_value* argv,</span><br><span class="line">                             napi_value* thisArg,</span><br><span class="line">                             void** data)</span><br><span class="line"></span><br><span class="line">   * [in] env：调用 API 的环境。</span><br><span class="line">   * [in] cbinfo：传递到回调函数的回调信息。</span><br><span class="line">   * [in-out] argc：指定提供的大小 argv array and receives the actual count of arguments.</span><br><span class="line">   * [out] argv：缓冲区，其中 napi_value 表示参数被复制。如果参数数超过提供的计数，则仅复制请求的参数数。如果提供的论据少于所声称的，则其余的 argv 充满了 napi_value 表示 undefined。</span><br><span class="line">   * [out] this：接收 JavaScript this 调用的参数。</span><br><span class="line">   * [out] data：接收回调的数据指针。</span><br><span class="line"></span><br><span class="line">返回 napi_ok 如果 API 成功。 </span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://nodejs.org/docs/v14.9.0/api/n-api.html">官方文档</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://houyudong1989.gitee.io/blog">侯玉东</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://houyudong1989.gitee.io/blog/2023/10/08/harmonyOS/NAPI/NAPI%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7%E8%A7%A3%E9%87%8A/">https://houyudong1989.gitee.io/blog/2023/10/08/harmonyOS/NAPI/NAPI%E5%B8%B8%E7%94%A8%E7%AC%A6%E5%8F%B7%E8%A7%A3%E9%87%8A/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://houyudong1989.gitee.io/blog" target="_blank">East'blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/blog/tags/harmonyOS/">harmonyOS</a></div><div class="post_share"><div class="social-share" data-image="/blog/img/library1.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/blog/2023/10/10/harmonyOS/NAPI/NAPI%E9%85%8D%E7%BD%AE/" title="NativeAPI 配置"><img class="cover" src="/blog/img/library1.jpeg" onerror="onerror=null;src='/blog/img/friend_404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">NativeAPI 配置</div></div></a></div><div class="next-post pull-right"><a href="/blog/2023/09/20/harmonyOS/FAQ/FAQ%E9%97%AE%E9%A2%98%E9%9B%86%E9%94%A6/" title="FAQ 问题集锦"><img class="cover" src="/blog/img/library1.jpeg" onerror="onerror=null;src='/blog/img/friend_404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">FAQ 问题集锦</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/blog/2023/11/05/harmonyOS/hdc/" title="hdc 使用帮助"><img class="cover" src="/blog/img/library1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-05</div><div class="title">hdc 使用帮助</div></div></a></div><div><a href="/blog/2023/11/29/harmonyOS/want%E6%98%BE%E5%BC%8F%E9%9A%90%E5%BC%8F%E8%A7%84%E5%88%99/" title="want显式隐式规则"><img class="cover" src="/blog/img/library1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-29</div><div class="title">want显式隐式规则</div></div></a></div><div><a href="/blog/2023/11/08/harmonyOS/%E5%83%8F%E7%B4%A0%E5%8D%95%E4%BD%8D/" title="像素单位"><img class="cover" src="/blog/img/library1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-08</div><div class="title">像素单位</div></div></a></div><div><a href="/blog/2023/11/28/harmonyOS/%E6%95%B0%E6%8D%AE%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" title="数据状态管理"><img class="cover" src="/blog/img/library1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-28</div><div class="title">数据状态管理</div></div></a></div><div><a href="/blog/2023/11/24/harmonyOS/%E6%9C%8D%E5%8A%A1%E5%8D%A1%E7%89%87/" title="服务卡片"><img class="cover" src="/blog/img/library1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-24</div><div class="title">服务卡片</div></div></a></div><div><a href="/blog/2023/11/14/harmonyOS/%E6%9D%83%E9%99%90%E6%8E%88%E4%BA%88/" title="访问控制权限"><img class="cover" src="/blog/img/library1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-14</div><div class="title">访问控制权限</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/blog/img/head.jpg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">侯玉东</div><div class="author-info__description">生命不息，奋斗不止</div></div><div class="card-info-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">34</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">4</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://gitee.com/houyudong1989"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/houyudong1989" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:420098321@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！！！</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/2023/11/29/harmonyOS/want%E6%98%BE%E5%BC%8F%E9%9A%90%E5%BC%8F%E8%A7%84%E5%88%99/" title="want显式隐式规则"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="want显式隐式规则"/></a><div class="content"><a class="title" href="/blog/2023/11/29/harmonyOS/want%E6%98%BE%E5%BC%8F%E9%9A%90%E5%BC%8F%E8%A7%84%E5%88%99/" title="want显式隐式规则">want显式隐式规则</a><time datetime="2023-11-28T16:00:00.000Z" title="发表于 2023-11-29 00:00:00">2023-11-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2023/11/28/harmonyOS/%E6%95%B0%E6%8D%AE%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" title="数据状态管理"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="数据状态管理"/></a><div class="content"><a class="title" href="/blog/2023/11/28/harmonyOS/%E6%95%B0%E6%8D%AE%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" title="数据状态管理">数据状态管理</a><time datetime="2023-11-27T16:00:00.000Z" title="发表于 2023-11-28 00:00:00">2023-11-28</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2023/11/24/harmonyOS/%E6%9C%8D%E5%8A%A1%E5%8D%A1%E7%89%87/" title="服务卡片"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="服务卡片"/></a><div class="content"><a class="title" href="/blog/2023/11/24/harmonyOS/%E6%9C%8D%E5%8A%A1%E5%8D%A1%E7%89%87/" title="服务卡片">服务卡片</a><time datetime="2023-11-23T16:00:00.000Z" title="发表于 2023-11-24 00:00:00">2023-11-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2023/11/22/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/15%E3%80%81%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="风险管理"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="风险管理"/></a><div class="content"><a class="title" href="/blog/2023/11/22/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/15%E3%80%81%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="风险管理">风险管理</a><time datetime="2023-11-22T01:27:58.317Z" title="发表于 2023-11-22 09:27:58">2023-11-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2023/11/22/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/14%E3%80%81%E9%87%87%E8%B4%AD%E7%AE%A1%E7%90%86/" title="采购管理"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="采购管理"/></a><div class="content"><a class="title" href="/blog/2023/11/22/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/14%E3%80%81%E9%87%87%E8%B4%AD%E7%AE%A1%E7%90%86/" title="采购管理">采购管理</a><time datetime="2023-11-22T01:27:58.302Z" title="发表于 2023-11-22 09:27:58">2023-11-22</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 侯玉东</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/blog/js/utils.js"></script><script src="/blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="8873950678" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/blog/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
