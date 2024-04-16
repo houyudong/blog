@@ -53,7 +53,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-03-01 09:38:22'
+  postUpdate: '2024-04-16 17:59:27'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -171,189 +171,405 @@
     document.addEventListener('pjax:send', () => { preloader.initLoading() })
     document.addEventListener('pjax:complete', () => { preloader.endLoading() })
   }
-})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/blog/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page fixed" id="page-header" style="background-image: url('https://staticqn.qizuang.com/meitu/20200429/5ea8f9b2d86bb-s5.jpg')"><nav id="nav"><span id="blog-info"><a href="/blog/" title="East'blog"><img class="site-icon" src="/blog/img/head.jpg"/><span class="site-name">East'blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">East'blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://gitee.com/houyudong1989" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:420098321@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/blog/2023/12/13/c++/%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/cmake%E7%BC%96%E8%AF%91%E5%A4%B1%E8%B4%A5/" title="cmake编译失败"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="cmake编译失败"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2023/12/13/c++/%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E4%B8%AD%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98/cmake%E7%BC%96%E8%AF%91%E5%A4%B1%E8%B4%A5/" title="cmake编译失败">cmake编译失败</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-13T13:22:10.349Z" title="发表于 2023-12-13 21:22:10">2023-12-13</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/c/">c++</a></span></div><div class="content">问题描述
-在开发过程中，通过cmake进行编译的时候报错，报错信息如下：CMake Error: CMake was unable to find a build program corresponding to “MinGW Makefiles”.  CMAKE_MAKE_PROGRAM is not set.  You probably need to select a different build tool.由错误信息描述中，可以看出他告诉我没有找到匹配的构建工具，于是我更换了Unix Makefiles进行构建同样报错。最关键的是我刚刚都还编译通过了，突然就变得不行了。
-于是，我由检查我的环境变量，我的工具，发现都是正常的，我又在CMakeList文件中添加了如下指令
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/blog/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">61</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page fixed" id="page-header" style="background-image: url('https://staticqn.qizuang.com/meitu/20200429/5ea8f9b2d86bb-s5.jpg')"><nav id="nav"><span id="blog-info"><a href="/blog/" title="East'blog"><img class="site-icon" src="/blog/img/head.jpg"/><span class="site-name">East'blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">East'blog</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://gitee.com/houyudong1989" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:420098321@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left"><a href="/blog/2024/03/21/harmonyOS/stage%E6%A8%A1%E5%9E%8B/" title="stage模型"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="stage模型"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2024/03/21/harmonyOS/stage%E6%A8%A1%E5%9E%8B/" title="stage模型">stage模型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-03-21T09:31:39.339Z" title="发表于 2024-03-21 17:31:39">2024-03-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/harmonyOS/">harmonyOS</a></span></div><div class="content">stage模型
+abilityStage1每个Entry类型或者Feature类型的HAP在运行期都有一个AbilityStage类实例，当HAP中的代码首次被加载到进程中的时候，系统会先创建AbilityStage实例。项目创建时不会自动创建AbilityStage，需要手动添加，并在配置文件进行配置。指定页面模式跳转需要再AbilityStage中进行设置。
 
-123SET(CMAKE_MAKE_PROGRAM C:/mingw64/bin/make.exe)SET(CMAKE_C_COMPILER C:/mingw64/bin/gcc.exe)SET(CMAKE_CXX_COMPILER C:/mingw64/bin/g++.exe)
+UIAbility12345Stage模型提供UIAbility和ExtensionAbility两种类型的组件，这两种组件都有具体的类承载，支持面向对象的开发方式。* UIAbility组件是一种包含UI界面的应用组件，主要用于和用户交互。例如，图库类应用可以在UIAbility组件中展示图片瀑布流，在用户选择某个图片后，在新的页面中展示图片的详细内容。同时用户可以通过返回键返回到瀑布流页面。UIAbility的生命周期只包含创建/销毁/前台/后台等状态，与显示相关的状态通过WindowStage的事件暴露给开发者。* ExtensionAbility组件是一种面向特定场景的应用组件。开发者并不直接从ExtensionAb ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/2024/03/18/harmonyOS/%E5%8A%A8%E7%94%BB/" title="页面转场动画"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="页面转场动画"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2024/03/18/harmonyOS/%E5%8A%A8%E7%94%BB/" title="页面转场动画">页面转场动画</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-03-18T05:46:18.317Z" title="发表于 2024-03-18 13:46:18">2024-03-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/harmonyOS/">harmonyOS</a></span></div><div class="content">动画概述123动画的原理是在一个时间段内，多次改变UI外观，由于人眼会产生视觉暂留，所以最终看到的就是一个“连续”的动画。UI的一次改变称为一个动画帧，对应一次屏幕刷新，而决定动画流畅度的一个重要指标就是帧率FPS（Frame Per Second），即每秒的动画帧数，帧率越高则动画就会越流畅。ArkUI中，产生动画的方式是改变属性值且指定动画参数。动画参数包含了如动画时长、变化规律（即曲线）等参数。当属性值发生变化后，按照动画参数，从原来的状态过渡到新的状态，即形成一个动画。ArkUI提供的动画能力按照页面的分类方式，可分为页面内的动画和页面间的动画。按照类型划分又分为帧动画、属性动画、显式动画、路径动画、转场动画。
 
+帧动画1帧动画也叫序列帧动画，其原理就是在时间轴的每帧上逐帧绘制不同的内容，使其连续播放而成动画。ArkUI开发框架提供了 ImageAnimator 组件实现帧动画能力,可以配置需要播放的图片列表，每张图片可以配置时长。
 
-再次编译，还是不行。
-最 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/2023/12/09/c++/%E7%BC%96%E8%AF%91gmp%E5%92%8Cmpfr/" title="无题"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2023/12/09/c++/%E7%BC%96%E8%AF%91gmp%E5%92%8Cmpfr/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-09T08:56:59.995Z" title="发表于 2023-12-09 16:56:59">2023-12-09</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/c/">c++</a></span></div><div class="content">windows 环境下载MinGWDownload MinGW
-1、下载 MSYS2 工具链MinGW-w64
-MSYS2下载地址
+属性
 
-2、安装MSYS2
-双击下载好的exe执行文件，进行安装
 
+参数名称
+参数类型
+参数描述
 
 
 
+images
+Array&lt;ImageFrameInfo&gt;
+设置图片帧信息集合。每一帧的 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/2024/03/01/python/1%E3%80%81%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="正则表达式"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2024/03/01/python/1%E3%80%81%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">正则表达式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-03-01T01:52:40.464Z" title="发表于 2024-03-01 09:52:40">2024-03-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/python-%E7%88%AC%E8%99%AB/">python 爬虫</a></span></div><div class="content">概述1234* 正则表达式（Regular Expression）是一种用来描述字符串模式的工具，它提供了一种灵活、强大且通用的方式来匹配、搜索和替换文本中的字符序列。正则表达式通常由普通字符（例如字母、数字、符号等）和元字符（特殊字符）组成，通过这些字符的组合形成一个模式，用以描述需要匹配的字符串形式。* 最早的正则表达式来源于Peri语言，后面其他的编程语言在提供正则表达式操作时基本沿用了Per语言的正则语法，所以我们学习正则以后，可以在java，php，go，javascript，sql，python，c++等编程语言中使用。正则对字符串或文本的操作，无非是分割、匹配、查找和替换。
 
-安装完成以后，进入MSYS2安装目录，双击
+元字符(Metacharacters)元字符是具有特殊含义的字符。
 
 
-输入 pacman -Syu 更新系统，输入Y确认安装插件
 
+元字符
+描述
 
-输入 pacman -S gcc make diffutils 安装相关依赖
 
-3、下载gmp和mpfr源码
-下载gmp
 
-gmp下载地址
+[ ]
+匹配一个中括号中出现的任意原子
 
 
-下载mpfr
+[^原子]
+匹配一个没有在中括号出现的任意原子
 
-mpfr下载地址
 
-4、编译
-打开
+\
+转义字符，可以把原子转换特殊元字符，也可以把特殊元字符转成原子。
 
 
-安装编译工具和相关依赖
+^
+叫开始边界符或开始锚点符，匹配一行的开头位置   (在[]中又有取反之意)
 
-1pacman -S gcc make diffutils
 
+$
+叫结束边界符或结束锚点符，匹配一行的结束位置
 
-开始编译
 
-123456./configure --prefix=/usr/local/gmp \            --enable-shared \            --disable-static \            --enable-fat \            --build=x86_64-w64-mingw32
-</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/2023/12/04/harmonyOS/%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E7%82%B9/" title="常用知识点"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="常用知识点"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2023/12/04/harmonyOS/%E5%B8%B8%E7%94%A8%E7%9F%A5%E8%AF%86%E7%82%B9/" title="常用知识点">常用知识点</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-04T12:10:10.122Z" title="发表于 2023-12-04 20:10:10">2023-12-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/harmonyOS/">harmonyOS</a></span></div><div class="content">指定布局、控件宽高比 aspectRatio宽高比约束
+ ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/2024/02/24/c++/%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="运算符"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="运算符"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2024/02/24/c++/%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="运算符">运算符</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-24T03:22:56.507Z" title="发表于 2024-02-24 11:22:56">2024-02-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/c/">c</a></span></div><div class="content">运算符和表达式
+运算符：
 
-属性 aspectRatio可以指定当前组件的宽高比 aspectRatio &#x3D; width&#x2F;height。当我们要设置控制拥有固定宽高比的时候，我们可以通过aspectRatio属性进行设置。可以选择设置aspectRatio以及width和height任意一个参数，系统会自动计算出他的高度或宽度。
-1、当设置值为具体值时，如果大小超过父容器大小，会压缩当前容器大小，同时保持宽高比。
-2、当设置值为百分比时，根据组件大小参照父容器大小，如超过父容器大小会显示不全。
+1运算符用于执行程序代码运算，会针对一个以上操作数来进行运算。例如：2+3，其操作数是2和3，而运算符则是“+”
 
-1234567891011121314151617181920Column() &#123;     Row()&#123;       // height = width / 0.5= 80       Image(&quot;&quot;).backgroundColor(&quot;#323333&quot;).width(40).aspectRatio(0.5)       Divider().strokeWidth(3).height ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/2023/12/02/harmonyOS/Canvas%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE/" title="canvas绘制柱状图"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="canvas绘制柱状图"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2023/12/02/harmonyOS/Canvas%E7%BB%98%E5%88%B6%E6%9F%B1%E7%8A%B6%E5%9B%BE/" title="canvas绘制柱状图">canvas绘制柱状图</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-01T16:00:00.000Z" title="发表于 2023-12-02 00:00:00">2023-12-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/harmonyOS/">harmonyOS</a></span></div><div class="content">概述1最近在做新功能需求的时候，需要丛一个柱状图，但目前由于鸿蒙生态不是特别丰富，所以准备使用canvas自己手撸一个柱状图。顺便研究一下canvas的使用。canvas是一个画布，提供给我们一个用于绘制图像的地方，它本身不提供各种绘制方法，需要使用CanvasRenderingContext2D对象和OffscreenCanvasRenderingContext2D对象进行绘制，就像我们画画一样，我们需要用笔在纸上进行绘制，canvas就是我们的纸，而CanvasRenderingContext2D对象和OffscreenCanvasRenderingContext2D对象就是我们画画的笔。
 
-Canvas1Canvas提供画布组件，用于自定义绘制图形，开发者使用CanvasRenderingContext2D对象和OffscreenCanvasRenderingContext2D对象在Canvas组件上进行绘制，绘制对象可以是基础形状、文本、图片等。
+操作数：
 
-CanvasRenderingContext2D 和 OffscreenCanvasRenderingContext2D1两个物件 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/2023/11/29/harmonyOS/want%E6%98%BE%E5%BC%8F%E9%9A%90%E5%BC%8F%E8%A7%84%E5%88%99/" title="want显式隐式规则"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="want显式隐式规则"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2023/11/29/harmonyOS/want%E6%98%BE%E5%BC%8F%E9%9A%90%E5%BC%8F%E8%A7%84%E5%88%99/" title="want显式隐式规则">want显式隐式规则</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-28T16:00:00.000Z" title="发表于 2023-11-29 00:00:00">2023-11-29</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/harmonyOS/">harmonyOS</a></span></div><div class="content">概述1want是对象间信息传递的载体，可以用于应用组件间的信息传递。其使用场景之一是作为startAbility()的参数，包含了指定的启动目标以及启动时需携带的相关数据，如bundleName和abilityName字段分别指明目标Ability所在应用的包名以及对应包内的Ability名称。当UIAbilityA启动UIAbilityB并需要传入一些数据给UIAbilityB时，Want可以作为一个载体将数据传给UIAbilityB。
+1是运算符作用于的实体，操作数指出指令执行的操作所需要数据的来源。
 
 
-want 类型显式want123在启动Ability时指定了abilityName和bundleName的Want称为显式Want。当有明确处理请求的对象时，通过提供目标Ability所在应用的包名信息（bundleName），并在Want内指定abilityName便可启动目标Ability。显式Want通常用于在当前应用开发中启动某个已知的Ability。
+表达式：
 
-12345let wantInfo = &#123;    deviceId: &#x27;&#x27;, // deviceId为空表示本设备    bundleName: &#x27 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/2023/11/28/harmonyOS/%E6%95%B0%E6%8D%AE%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" title="数据状态管理"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="数据状态管理"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2023/11/28/harmonyOS/%E6%95%B0%E6%8D%AE%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86/" title="数据状态管理">数据状态管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-27T16:00:00.000Z" title="发表于 2023-11-28 00:00:00">2023-11-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/harmonyOS/">harmonyOS</a></span></div><div class="content">globalThis
-ArkTS引擎实例内部的一个全局对象，在ArkTS引擎实例内部都能访问,每个应用都有且仅有一个globalThis，引擎内部的UIAbility&#x2F;ExtensionAbility&#x2F;Page都可以使用，因此可以使用globalThis全局对象进行数据同步。当给globalThis设置值的时候，如果值不存在则新增，存在则替换。所以在赋值的时候一定要注意这一点。
+1是由数字、运算符、数字分组符号（括号）、自由变量等以能求得数值的有意义排列方法所得的组合。
 
 
+表达式书写规则
 
+123* 运算符不能相邻。例a+/b是错误的* 运算符不能省略。例x乘以y，应写成x*y，而不是xy* 可用多层括号表示运算次序，括号必须成对出现，均使用小括号。
 
-globalThis 使用
 
-12345* globalThis 赋值	globalThis.context = this.context* globalThis 取值        let ctx = globalThis.context;
+运算符优先级和结合性
 
-EventHub
-基于发布订阅模式来实现，事件需要先订阅后发布，订阅者收到消息后进行处理。目前测试只能从页面触发事件给UIAbility进行响应。
-EventHub主要包含3个函数，分别是订阅事件、取消订阅事件和发布事件。
-基类context提供了EventHub对象，通过context获取eventHub对象，实现组件级别的事件传递机制。
- ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/2023/11/24/harmonyOS/%E6%9C%8D%E5%8A%A1%E5%8D%A1%E7%89%87/" title="服务卡片"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="服务卡片"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2023/11/24/harmonyOS/%E6%9C%8D%E5%8A%A1%E5%8D%A1%E7%89%87/" title="服务卡片">服务卡片</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-23T16:00:00.000Z" title="发表于 2023-11-24 00:00:00">2023-11-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/harmonyOS/">harmonyOS</a></span></div><div class="content">概述1服务卡片是一种界面展示形式，可以将应用的重要信息或操作前置到卡片，以达到服务直达、减少体验层级的目的。卡片常用于嵌入到其他应用（当前卡片使用方只支持系统应用，如桌面）中作为其界面显示的一部分，并支持拉起页面、发送消息等基础的交互功能。
+12345所谓优先级就是当一个表达式中有多个运算符时，先计算谁，后计算谁。这个其实我们在小学学算术的时候就学过，如 1+4÷（2+8）那么“结合性”是什么呢？优先级都是关于优先级不同的运算符参与运算时先计算谁后计算谁。但是如果运算符的优先级相同，那么先计算谁后计算谁呢？这个就是由“结合性”决定的。比如 `1+2×3÷4`，乘和除的优先级相同，但是计算的时候是从左往右，即先计算乘再计算除，所以乘和除的结合性就是从左往右。就是这么简单！
 
-服务卡片架构
-卡片基本概念
-卡片使用方
+运算符分类 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/2024/02/24/c++/%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/" title="常量、变量、基本类型"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="常量、变量、基本类型"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2024/02/24/c++/%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/" title="常量、变量、基本类型">常量、变量、基本类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-24T02:53:32.587Z" title="发表于 2024-02-24 10:53:32">2024-02-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/c/">c</a></span></div><div class="content">常量、变量、基本类型整型常量123整数常量可以是十进制、八进制或十六进制的常量。前缀指定基数：0x 或 0X 表示十六进制，0 表示八进制，不带前缀则默认表示十进制(VS2019支持二进制常量表示：0b或0B表示二进制)。整数常量也可以带一个后缀，后缀是 U 和 L 的组合，U 表示无符号整数（unsigned），L 表示长整数（long）。后缀可以是大写，也可以是小写，U 和 L 的顺序任意。
 
-1卡片使用方通常是指卡片的宿主应用，控制卡片显示的位置。目前只支持桌面使用
 
+二进制表示方式，前面加0b或0B表示二进制数
 
-卡片提供方
+120b000011110B00001111
 
-1卡片提供方就是我们的应用，通过FormExtensionAbility来实现卡片的业务逻辑。
 
+八进制表示方式,在数值前加0表示八进制数，因为在10进制数前面加0没有任何意义 如：
 
-卡片使用步骤
+12012308 // 无效数据，取值0-7
 
-123* 在桌面环境下，长按应用图标。* 在弹出的操作菜单中点击《服务卡片》选项。* 选择要添加的卡片，点击《添加至桌面》，即可在桌面看到新添加的卡片。
 
-卡片实现原理
-1234* 卡片使用方：显示卡片内容的宿主应用，控制卡片在宿主中展示的位置，当前仅系统应用可以作为卡片使用方。* 卡片提供方：提供卡片显示内容的应用，控制卡片的显示内容、控件布局以及控件点击事件。* 卡片管理服务：用于管理系统中所添加卡片的常驻代理服务，提供formProvider接口能力，同时提供卡片对象的管理与使用以及卡片周期性 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/2023/11/22/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/15%E3%80%81%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="风险管理"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="风险管理"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2023/11/22/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/15%E3%80%81%E9%A3%8E%E9%99%A9%E7%AE%A1%E7%90%86/" title="风险管理">风险管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-22T01:27:58.317Z" title="发表于 2023-11-22 09:27:58">2023-11-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B8%88/">信息项目管理师</a></span></div><div class="content">15、风险管理风险的定义
-广义风险
+十进制表示方式，数值默认表现形式为十进制
 
-1风险是一种不确定的事件或条件，一旦发生，就会产生积极或消极的影响
+1123
 
 
-狭义风险
+十六进制表示方式，前面加0x或0X表示二进制数
 
-1风险定义为损失的不确定性
+120x13ab0XAB1a
 
-风险的分类
-按照性质划分为 纯粹风险和投机风险
 
+数值加后缀表示,可以在数值后面加上u或者l，大小写皆可以
 
-纯粹风险
+1234567435       //表示 int 类型532L      //表示 long 类型432U      //表示 unsigned int 类 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/2024/02/23/c++/%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" title="基础内容"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="基础内容"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2024/02/23/c++/%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" title="基础内容">基础内容</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-23T01:31:40.831Z" title="发表于 2024-02-23 09:31:40">2024-02-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/c-kotlin/">c++ kotlin</a></span></div><div class="content">进制对照表
 
-1指只有损失可能性而无获利可能性的风险。比如房屋所有者面临的火灾风险
 
+十进制
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+
+
+
+二进制
+0000
+0001
+0010
+0011
+0100
+0101
+0110
+0111
+1000
+1001
+1010
+1011
+1100
+1101
+1110
+1111
+
+
+八进制
+0
+1
+2
+3
+4
+5
+6
+7
+10
+11
+12
+13
+14
+15
+16
+17
+
 
-投机风险
+十六进制
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+A
+B
+C
+D
+E
+F
 
-1相对于纯粹风险而言，是指既有损失的可能又有获利的机会的风险。其后果一般有三种情况：没有损失、有损失、有收益。比如股票市场买卖股票
 
+2的n次方表
 
-按照产生原因划分为 自然风险、社会风险、政治风险、经济风险和技术风险
 
+2^0
+2^1
+2^2
+2^3
+2^4
+2^5
+2^6
+2^7
+2^8
+2^9
+2^10
 
-自然风险
 
-1指因自然力的不规则变化使社会生产和社会生活等遭受威胁的风险。如地震、风灾、水灾以及各种瘟疫等自然现象是经常的、大量发生的。自然风险的特征有：不可控性、周期性和共沾性
 
+1
+10
+100
+1000
+10000
+100000
+1000000
+10000000
+100000000
+1000000000
+10000000000
 
-社会风险
 
-1指由于个人或团体的行为（包括过失行为、不当行为以及故意行为）或不作为使社会生产以及个人生活遭受损失的风险，如盗窃、抢劫、玩忽职守及故意破坏等
+1
+2
+4
+8
+16
+32
+64
+128
+256
+512
+1024
 
 
-政治风险
+32个关键字
 
-1是指在对外投资和贸易过程中，因政治原因或订立双方所不能控制的原因，使债权人可能遭受损失的风险。如因进口国发生战争、内乱而中止货物进 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/2023/11/22/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/14%E3%80%81%E9%87%87%E8%B4%AD%E7%AE%A1%E7%90%86/" title="采购管理"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="采购管理"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2023/11/22/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/14%E3%80%81%E9%87%87%E8%B4%AD%E7%AE%A1%E7%90%86/" title="采购管理">采购管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-22T01:27:58.302Z" title="发表于 2023-11-22 09:27:58">2023-11-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B8%88/">信息项目管理师</a></span></div><div class="content">14、采购管理战略合作管理
-企业仅依靠自身无力应对激烈的竞争，因此，必须摈弃“以企业为中心”的传统管理模式，代之以现代战略合作的管理模式。战略合作的管理本质是供应链管理
-战略合作关系形成于集成化供应链管理环境下，形成于供应链中为了特定的目标和利益的企业之间。目的是为了降低供应链总成本、降低库存水平、增强信息共享、改善互相之间的交流、保持战略伙伴相互之间操作的一惯性、产生更大的竞争优势，以实现供应链节点企业的财务状况、质量、产量、交货期、用户满意度和业绩的改善和提高。
-供应商战略伙伴关系是企业与供应商之间达成的最高层次的合作关系，他是指在互相信任的基础上，供需双方为了实现共同的目标而采取的共担风险、共享利益的长期合作关系。具体来讲包括以下含义：
-发展长期的、信赖的合作关系
-这种关系有明确或口头的合约确定，双方共同确认并且在各个层次都有相应的沟通
-双方有着共同的目标，并且为着共同的目标有挑战性的改进计划
-双方互相信任、共担风险，共享信息
-共同开发、创造
-以严格的尺度来衡量合作表现，不断提高
 
+类型
+关键字
+解释
 
-建立供应商战略合作伙伴的意义如下：
-可以缩短供应商的供应周期，提高供应灵活度
-可以降低企业采购设 ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/2023/11/22/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/13%E3%80%81%E5%90%88%E5%90%8C%E7%AE%A1%E7%90%86/" title="合同管理"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="合同管理"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2023/11/22/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/13%E3%80%81%E5%90%88%E5%90%8C%E7%AE%A1%E7%90%86/" title="合同管理">合同管理</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-22T01:27:58.287Z" title="发表于 2023-11-22 09:27:58">2023-11-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B8%88/">信息项目管理师</a></span></div><div class="content">13、合同管理合同的概念
-合同
 
-1合同是工程建设项目的基本依据，也是监理工作的主要依据。我国《合同法》中所称的合同是指：平等主体的自然人、法人或其他组织之间设立、变更、终止民事权利义务关系的协议。
 
+基本数据类型
+void
+空类型
 
-广义合同
 
-1指以确定各种权利与义务为内容的协议，即只要是当事人之间达成的确定权利义务的协议均为合同，不管他涉及那个法律部门和何种法律关系，包括民法上的合同、行政法上的行政合同、劳动法上的劳动合同、国际法上的国家合同。
 
+char
+字符型
 
-狭义合同
 
-1专指民法上的合同，是当事人之间确立、变更、终止民事权利义务关系意思表示一致的法律行为。
 
+int
+整型
 
-信息系统工程合同
 
-1信息系统工程合同是指与信息系统工程策划、咨询、设计、开发、实施、服务即保障等有关的各类合同。
 
+float
+单精度浮点型
 
-合同要素
 
-123* 合同的成立必须要有两个（含）以上的当事人* 各方当事人须互相做出意思表示* 各个意思表示达成一致
 
-合同的法律特征12345* 合同是一种民事法律行为* 合同是一种双方或多方共同的民事法律行为* 合同以在当事人之间设立、变更、终止财产性的民事权利义务为目的* 订立、履行合同，应当遵守相关的法律及行政法规* 合同依法成立，即 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/blog/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/5/#content-inner">5</a><a class="extend next" rel="next" href="/blog/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/blog/img/head.jpg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">侯玉东</div><div class="author-info__description">生命不息，奋斗不止</div></div><div class="card-info-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">48</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">10</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://gitee.com/houyudong1989"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/houyudong1989" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:420098321@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！！！</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/02/24/c++/%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="运算符"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="运算符"/></a><div class="content"><a class="title" href="/blog/2024/02/24/c++/%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="运算符">运算符</a><time datetime="2024-02-24T03:22:56.507Z" title="发表于 2024-02-24 11:22:56">2024-02-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/02/24/c++/%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/" title="常量、变量、基本类型"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="常量、变量、基本类型"/></a><div class="content"><a class="title" href="/blog/2024/02/24/c++/%E5%B8%B8%E9%87%8F%E3%80%81%E5%8F%98%E9%87%8F%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B/" title="常量、变量、基本类型">常量、变量、基本类型</a><time datetime="2024-02-24T02:53:32.587Z" title="发表于 2024-02-24 10:53:32">2024-02-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/02/23/c++/%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" title="基础内容"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="基础内容"/></a><div class="content"><a class="title" href="/blog/2024/02/23/c++/%E5%9F%BA%E7%A1%80%E5%86%85%E5%AE%B9/" title="基础内容">基础内容</a><time datetime="2024-02-23T01:31:40.831Z" title="发表于 2024-02-23 09:31:40">2024-02-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/02/22/c++/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E5%92%8C%E5%AD%98%E5%82%A8%E6%A8%A1%E5%9E%8B/" title="进制转换和存储模型"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="进制转换和存储模型"/></a><div class="content"><a class="title" href="/blog/2024/02/22/c++/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E5%92%8C%E5%AD%98%E5%82%A8%E6%A8%A1%E5%9E%8B/" title="进制转换和存储模型">进制转换和存储模型</a><time datetime="2024-02-22T02:00:29.871Z" title="发表于 2024-02-22 10:00:29">2024-02-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/02/04/kotlin/kotlin%E5%9F%BA%E7%A1%80/" title="kotlin基础-基本类型"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="kotlin基础-基本类型"/></a><div class="content"><a class="title" href="/blog/2024/02/04/kotlin/kotlin%E5%9F%BA%E7%A1%80/" title="kotlin基础-基本类型">kotlin基础-基本类型</a><time datetime="2024-02-04T03:24:55.211Z" title="发表于 2024-02-04 11:24:55">2024-02-04</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+double
+双精度浮点型
+
+
+类型修饰关键字
+s ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/2024/02/22/c++/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E5%92%8C%E5%AD%98%E5%82%A8%E6%A8%A1%E5%9E%8B/" title="进制转换和存储模型"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="进制转换和存储模型"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2024/02/22/c++/%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2%E5%92%8C%E5%AD%98%E5%82%A8%E6%A8%A1%E5%9E%8B/" title="进制转换和存储模型">进制转换和存储模型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-22T02:00:29.871Z" title="发表于 2024-02-22 10:00:29">2024-02-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/c/">c++</a></span></div><div class="content">进制概述1进制是一种用于表示数字的方法，常见的进制包括二进制（base-2）、八进制（base-8）、十进制（base-10）和十六进制（base-16）。每种进制都有对应的数字表示方式和计算规则。在计算机领域，二进制是最基础的进制，因为计算机内部使用的是二进制形式表示数据；八进制和十六进制常用于表示和处理数据；而十进制则是人们日常生活中最常用的进制。
+
+二进制（Binary）
+组成
+
+1只包含 0 和 1 两个数字，是计算机中最基础的进制。
+
+
+规则
+
+1逢2进1
+
+
+示例
+
+1例如，1011 表示十进制的 11。
+
+八进制（Octal）
+组成
+
+1包含数字 0 到 7，每个八进制位相当于三个二进制位。
+
+
+规则
+
+1逢8进1
+
+
+示例
+
+1例如，23 表示十进制的 19。
+
+十进制（Decimal）
+组成
+
+1我们平常使用的数字系统，包含数字 0 到 9，每个位置代表 10 的幂次方。
+
+
+规则
+
+1逢10进1
+
+
+示例
+
+1例如，123 表示 1 * 10^2 + 2 * 10^1 + 3 * 10^0 = 123。
+
+十六进制（Hexadecimal）
+组成
+
+1包含数字 0  ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/2024/02/04/kotlin/kotlin%E5%9F%BA%E7%A1%80/" title="kotlin基础-基本类型"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="kotlin基础-基本类型"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2024/02/04/kotlin/kotlin%E5%9F%BA%E7%A1%80/" title="kotlin基础-基本类型">kotlin基础-基本类型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-02-04T03:24:55.211Z" title="发表于 2024-02-04 11:24:55">2024-02-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/kotlin%E5%9F%BA%E7%A1%80/">kotlin基础</a></span></div><div class="content">基本类型1在Kotlin中，所有东西都是对象，在这个意义上讲我们可以在任何变量上调用成员函数和属性。一些类型可以有特殊的内部表示——例如，数字、字符和布尔值可以在运行时表示为原生类型值，但是对于用户来说，它们看起来就像普通的类。
+
+数字类型
+
+
+类型
+字节
+
+
+
+Double
+64
+
+
+Float
+32
+
+
+Long
+64
+
+
+Int
+32
+
+
+Short
+16
+
+
+Byte
+8
+
+
+字面常量表示
+十进制表示
+
+12所有整数默认采用十进制表示，如：123如果表示Long类型使用大写L标记，如：123L
+
+
+十六进制表示
+
+1十六进制使用0x或者0X进行表示，如：0X0F，0x0a
+
+
+二进制表示
+
+1二进制使用0b或者0B进行表示，如：0B00001101，0b11100001
+
+
+浮点数表示
+
+12所有浮点数默认使用Double类型，如：123.45如果使用Float类型，使用f进行标记，如：123.45f，123.45F
+
+
+下划线表示数值
+
+1234为了让数字常量更容易阅读，支持使用下划线进行标记，如：* 十进制：1_000_000_000  22_000_111L* 二进制：0 ...</div></div></div><div class="recent-post-item"><div class="post_cover left"><a href="/blog/2024/01/20/harmonyOS/ArkUI-X/" title="ArkUI-X"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="ArkUI-X"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2024/01/20/harmonyOS/ArkUI-X/" title="ArkUI-X">ArkUI-X</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-01-20T13:21:19.326Z" title="发表于 2024-01-20 21:21:19">2024-01-20</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/harmonyOS/">harmonyOS</a></span></div><div class="content">概述12ArkUI是一套构建分布式应用的声明式UI开发框架。它具备简洁自然的UI信息语法、丰富的UI组件、多维的状态管理，以及实时界面预览等相关能力，帮助您提升应用开发效率，并能在多种设备上实现生动而流畅的用户体验。ArkUI-X进一步将ArkUI扩展到了多个OS平台：目前支持OpenHarmony、HarmonyOS、Android、 iOS，后续会逐步增加更多平台支持。开发者基于一套主代码，就可以构建支持多平台的精美、高性能应用。
+
+
+关键特征
+
+12345* 简洁自然的声明式语法。* 高效的渲染管线以及平台一致性的渲染机制。* 高效的方舟编译器以及运行时。* 统一的跨平台API能力集以及扩展机制。* 动态化特性
+
+
+技术架构
+
+
+术语
+ArkUI1方舟开发框架（简称：ArkUI），是一套构建OpenHarmony应用界面的UI开发框架，它提供了简洁自然的UI语法与包括UI组件、动画机制、事件交互等在内的UI开发基础设施，以满足应用开发者的可视化界面开发需求。 
+ArkUI-X1ArkUI-X，是扩展ArkUI开发框架到多个OS平台，目前支持OpenHarmony、HarmonyO ...</div></div></div><div class="recent-post-item"><div class="post_cover right"><a href="/blog/2023/12/26/harmonyOS/router%E8%B7%AF%E7%94%B1/" title="router路由跳转"><img class="post-bg" src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="router路由跳转"></a></div><div class="recent-post-info"><a class="article-title" href="/blog/2023/12/26/harmonyOS/router%E8%B7%AF%E7%94%B1/" title="router路由跳转">router路由跳转</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-26T08:18:04.599Z" title="发表于 2023-12-26 16:18:04">2023-12-26</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/blog/categories/harmonyOS/">harmonyOS</a></span></div><div class="content">概述123页面路由指在应用程序中实现不同页面之间的跳转和数据传递。HarmonyOS提供了Router模块，通过不同的url地址，可以方便地进行页面路由，轻松地访问不同的页面。 之前我们通过Uicontext来实现不同UIability的跳转，但是我们通常建议在一个应用中最好只存在一个Uiability，更多情况下，我们通过router来进行不同page间的跳转。在使用router之前，需要导入router：import router from &#x27;@ohos.router&#x27;;
+
+同一模块间跳转
+在同一模块间进行跳转，url只需要传递对应page路径即可，如：
+
+1url: &#x27;pages/login/LoginPage&#x27; 
+
+跨模块跳转
+跨模块间页面进行跳转，url需要传递@bundle:应用包名&#x2F;动态库名称&#x2F;ets&#x2F;pages&#x2F;页面名称，如：
+
+1url: &quot;@bundle:com.***.***/webview/ets/pages/WebPage&quot;
+
+跳转模式1router路由有两种跳 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/blog/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/blog/">1</a><span class="page-number current">2</span><a class="page-number" href="/blog/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/blog/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/blog/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/blog/img/head.jpg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">侯玉东</div><div class="author-info__description">生命不息，奋斗不止</div></div><div class="card-info-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">61</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://gitee.com/houyudong1989"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/houyudong1989" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:420098321@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！！！</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/14/python/7%E3%80%81m3u8%E6%A0%BC%E5%BC%8F/" title="m3u8格式"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="m3u8格式"/></a><div class="content"><a class="title" href="/blog/2024/04/14/python/7%E3%80%81m3u8%E6%A0%BC%E5%BC%8F/" title="m3u8格式">m3u8格式</a><time datetime="2024-04-14T04:14:21.151Z" title="发表于 2024-04-14 12:14:21">2024-04-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/12/python/6%E3%80%81http%E5%8D%8F%E8%AE%AE/" title="http协议"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="http协议"/></a><div class="content"><a class="title" href="/blog/2024/04/12/python/6%E3%80%81http%E5%8D%8F%E8%AE%AE/" title="http协议">http协议</a><time datetime="2024-04-12T08:08:38.231Z" title="发表于 2024-04-12 16:08:38">2024-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/12/python/5%E3%80%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" title="加密算法"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="加密算法"/></a><div class="content"><a class="title" href="/blog/2024/04/12/python/5%E3%80%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" title="加密算法">加密算法</a><time datetime="2024-04-12T08:06:52.297Z" title="发表于 2024-04-12 16:06:52">2024-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/12/python/4%E3%80%81%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95%E3%80%81URL%E7%BC%96%E7%A0%81%E5%92%8Cbase64%E7%BC%96%E7%A0%81/" title="摘要算法、URL编码和base64编"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="摘要算法、URL编码和base64编"/></a><div class="content"><a class="title" href="/blog/2024/04/12/python/4%E3%80%81%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95%E3%80%81URL%E7%BC%96%E7%A0%81%E5%92%8Cbase64%E7%BC%96%E7%A0%81/" title="摘要算法、URL编码和base64编">摘要算法、URL编码和base64编</a><time datetime="2024-04-12T08:05:35.315Z" title="发表于 2024-04-12 16:05:35">2024-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/12/python/3%E3%80%81xpath%E4%BD%BF%E7%94%A8/" title="xpath使用"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="xpath使用"/></a><div class="content"><a class="title" href="/blog/2024/04/12/python/3%E3%80%81xpath%E4%BD%BF%E7%94%A8/" title="xpath使用">xpath使用</a><time datetime="2024-04-12T08:04:52.177Z" title="发表于 2024-04-12 16:04:52">2024-04-12</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
-            
+            <a class="card-more-btn" href="/blog/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/c/"><span class="card-category-list-name">c</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/c/"><span class="card-category-list-name">c++</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/c-kotlin/"><span class="card-category-list-name">c++ kotlin</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/harmonyOS/"><span class="card-category-list-name">harmonyOS</span><span class="card-category-list-count">19</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/kotlin%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">kotlin基础</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/mongodb/"><span class="card-category-list-name">mongodb</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B8%88/"><span class="card-category-list-name">信息项目管理师</span><span class="card-category-list-count">19</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/blog/tags/harmonyOS-FAQ/" style="font-size: 1.1em; color: #999">harmonyOS  FAQ</a> <a href="/blog/tags/mongodb/" style="font-size: 1.1em; color: #999">mongodb</a> <a href="/blog/tags/kotlin/" style="font-size: 1.1em; color: #999">kotlin</a> <a href="/blog/tags/c-kotlin/" style="font-size: 1.1em; color: #999">c++ kotlin</a> <a href="/blog/tags/git/" style="font-size: 1.1em; color: #999">git</a> <a href="/blog/tags/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B8%88-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.5em; color: #99a9bf">信息项目管理师,项目管理</a> <a href="/blog/tags/c/" style="font-size: 1.2em; color: #999da3">c</a> <a href="/blog/tags/harmonyOS/" style="font-size: 1.4em; color: #99a5b6">harmonyOS</a> <a href="/blog/tags/c/" style="font-size: 1.3em; color: #99a1ac">c++</a> <a href="/blog/tags/harmonyOS-context/" style="font-size: 1.1em; color: #999">harmonyOS context</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">25</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">3</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">48</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-03-01T01:38:22.589Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 侯玉东</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/blog/js/utils.js"></script><script src="/blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/c/"><span class="card-category-list-name">c</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/c/"><span class="card-category-list-name">c++</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/c-kotlin/"><span class="card-category-list-name">c++ kotlin</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/git/"><span class="card-category-list-name">git</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/harmonyOS/"><span class="card-category-list-name">harmonyOS</span><span class="card-category-list-count">23</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/kotlin%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">kotlin基础</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/mongodb/"><span class="card-category-list-name">mongodb</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/blog/categories/python-%E7%88%AC%E8%99%AB/"><span class="card-category-list-name">python 爬虫</span><span class="card-category-list-count">7</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/blog/tags/c/" style="font-size: 1.2em; color: #999da3">c</a> <a href="/blog/tags/requests%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8/" style="font-size: 1.1em; color: #999">requests模块使用</a> <a href="/blog/tags/mongodb/" style="font-size: 1.1em; color: #999">mongodb</a> <a href="/blog/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" style="font-size: 1.1em; color: #999">正则表达式</a> <a href="/blog/tags/c/" style="font-size: 1.3em; color: #99a1ac">c++</a> <a href="/blog/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" style="font-size: 1.1em; color: #999">加密算法</a> <a href="/blog/tags/c-kotlin/" style="font-size: 1.1em; color: #999">c++ kotlin</a> <a href="/blog/tags/xpath%E4%BD%BF%E7%94%A8/" style="font-size: 1.1em; color: #999">xpath使用</a> <a href="/blog/tags/m3u8%E6%A0%BC%E5%BC%8F/" style="font-size: 1.1em; color: #999">m3u8格式</a> <a href="/blog/tags/git/" style="font-size: 1.1em; color: #999">git</a> <a href="/blog/tags/harmonyOS-context/" style="font-size: 1.1em; color: #999">harmonyOS context</a> <a href="/blog/tags/%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95%E3%80%81URL%E7%BC%96%E7%A0%81%E5%92%8Cbase64%E7%BC%96/" style="font-size: 1.1em; color: #999">摘要算法、URL编码和base64编</a> <a href="/blog/tags/harmonyOS-FAQ/" style="font-size: 1.1em; color: #999">harmonyOS  FAQ</a> <a href="/blog/tags/%E4%BF%A1%E6%81%AF%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E5%B8%88-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" style="font-size: 1.4em; color: #99a5b6">信息项目管理师,项目管理</a> <a href="/blog/tags/%E7%88%AC%E8%99%AB%E4%BB%8B%E7%BB%8D/" style="font-size: 1.1em; color: #999">爬虫介绍</a> <a href="/blog/tags/bs4/" style="font-size: 1.1em; color: #999">bs4</a> <a href="/blog/tags/http%E5%8D%8F%E8%AE%AE/" style="font-size: 1.1em; color: #999">http协议</a> <a href="/blog/tags/harmonyOS/" style="font-size: 1.5em; color: #99a9bf">harmonyOS</a> <a href="/blog/tags/kotlin/" style="font-size: 1.1em; color: #999">kotlin</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/blog/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2024/04/"><span class="card-archive-list-date">四月 2024</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2024/01/"><span class="card-archive-list-date">一月 2024</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">26</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/blog/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">61</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-04-16T09:59:27.588Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 侯玉东</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/blog/js/utils.js"></script><script src="/blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>window.typedJSFn = {
   init: (str) => {
     window.typed = new Typed('#subtitle', Object.assign({
       strings: str,

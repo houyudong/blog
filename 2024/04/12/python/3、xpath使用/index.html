@@ -1,0 +1,399 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>xpath使用 | East'blog</title><meta name="author" content="侯玉东"><meta name="copyright" content="侯玉东"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="xpath使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xpath使用">
+<meta property="og:url" content="https://houyudong1989.gitee.io/blog/2024/04/12/python/3%E3%80%81xpath%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="East&#39;blog">
+<meta property="og:description" content="xpath使用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://houyudong1989.gitee.io/blog/img/library1.jpeg">
+<meta property="article:published_time" content="2024-04-12T08:04:52.177Z">
+<meta property="article:modified_time" content="2024-04-16T01:17:52.012Z">
+<meta property="article:author" content="侯玉东">
+<meta property="article:tag" content="xpath使用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://houyudong1989.gitee.io/blog/img/library1.jpeg"><link rel="shortcut icon" href="/blog/img/head.jpg"><link rel="canonical" href="https://houyudong1989.gitee.io/blog/2024/04/12/python/3%E3%80%81xpath%E4%BD%BF%E7%94%A8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'xpath使用',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-04-16 09:17:52'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/blog/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">61</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/blog/img/library2.jpeg')"><nav id="nav"><span id="blog-info"><a href="/blog/" title="East'blog"><img class="site-icon" src="/blog/img/head.jpg"/><span class="site-name">East'blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">xpath使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-04-12T08:04:52.177Z" title="发表于 2024-04-12 16:04:52">2024-04-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-04-16T01:17:52.012Z" title="更新于 2024-04-16 09:17:52">2024-04-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/blog/categories/python-%E7%88%AC%E8%99%AB/">python 爬虫</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="xpath使用"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="xpath"><a href="#xpath" class="headerlink" title="xpath"></a>xpath</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">XPath（XML Path Language）是一种用于在 XML 文档中定位节点的语言。它也常用于 HTML 文档中，特别是在网页抓取和解析中。XPath 使用路径表达式来选取 XML 或 HTML 文档中的节点或节点集。xpath在Python的爬虫学习中，起着举足轻重的地位，对比正则表达式 re两者可以完成同样的工作，实现的功能也差不多，但xpath明显比re具有优势，在网页分析上使re退居二线</span><br></pre></td></tr></table></figure>
+
+<h2 id="xpath的优点"><a href="#xpath的优点" class="headerlink" title="xpath的优点"></a><strong><code>xpath的优点</code></strong></h2><ul>
+<li>可在XML中查找信息</li>
+<li>支持HTML的查找</li>
+<li>通过元素和属性进行导航</li>
+</ul>
+<h2 id="xpath安装"><a href="#xpath安装" class="headerlink" title="xpath安装"></a><strong><code>xpath安装</code></strong></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">由于xpath属于lxml库模块，所以使用xpath需要先安装lxml库。</span><br><span class="line">pip install lxml</span><br></pre></td></tr></table></figure>
+
+<h2 id="xpath使用"><a href="#xpath使用" class="headerlink" title="xpath使用"></a><strong><code>xpath使用</code></strong></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line">selector=etree.HTML(源码) <span class="comment">#将源码转化为能被XPath匹配的格式</span></span><br><span class="line">selector.xpath(表达式) <span class="comment">#返回为查询结果的列表，元素为element，并可以继续对element进行xpath匹配</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="路径表达式"><a href="#路径表达式" class="headerlink" title="路径表达式"></a>路径表达式</h2><table>
+<thead>
+<tr>
+<th><strong>表达式</strong></th>
+<th><strong>描述</strong></th>
+<th><strong>实例</strong></th>
+<th><strong>解析</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>&#x2F;</strong></td>
+<td><strong>从源码的根节点开始选取（只对子节点选取）</strong></td>
+<td><code>/body/div[1]</code></td>
+<td><strong>选取根结点下的body下的第一个div标签</strong></td>
+</tr>
+<tr>
+<td><strong>&#x2F;&#x2F;</strong></td>
+<td><strong>从匹配选择的当前节点选择文档中的节点，<br>而不考虑它们的位置（可以针对子孙节点选取）</strong></td>
+<td><code>//a</code></td>
+<td><strong>选取文档中所有的a标签</strong></td>
+</tr>
+<tr>
+<td><strong>.&#x2F;</strong></td>
+<td><strong>当前节点再次进行xpath</strong></td>
+<td><code>./a</code></td>
+<td><strong>选取当前节点下的所有a标签</strong></td>
+</tr>
+<tr>
+<td><strong>@</strong></td>
+<td><strong>选取属性</strong></td>
+<td><code>//@calss</code></td>
+<td><strong>选取所有的class属性</strong></td>
+</tr>
+</tbody></table>
+<h2 id="谓语"><a href="#谓语" class="headerlink" title="谓语"></a>谓语</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">谓语用来查找某个特定的节点或者包含某个指定的值的节点。</span><br><span class="line">谓语被嵌在方括号中。</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th><strong>路径表达式</strong></th>
+<th><strong>结果</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>&#x2F;ul&#x2F;li[1]</strong></td>
+<td><strong>选取属于 ul子元素的第一个 li元素。</strong></td>
+</tr>
+<tr>
+<td><strong>&#x2F;ul&#x2F;li[last()]</strong></td>
+<td><strong>选取属于 ul子元素的最后一个 li元素。</strong></td>
+</tr>
+<tr>
+<td><strong>&#x2F;ul&#x2F;li[last()-1]</strong></td>
+<td><strong>选取属于 ul子元素的倒数第二个 li元素。</strong></td>
+</tr>
+<tr>
+<td><strong>&#x2F;&#x2F;ul&#x2F;li[position()&lt;3]</strong></td>
+<td><strong>选取最前面的两个属于 ul元素的子元素的 li元素。</strong></td>
+</tr>
+<tr>
+<td><strong>&#x2F;&#x2F;a[@title]</strong></td>
+<td><strong>选取所有拥有名为 title的属性的 a元素。</strong></td>
+</tr>
+<tr>
+<td><strong>&#x2F;&#x2F;a[@title&#x3D;’xx’]</strong></td>
+<td><strong>选取所有 a元素，且这些元素拥有值为 xx的 title属性。</strong></td>
+</tr>
+<tr>
+<td><strong>&#x2F;&#x2F;a[@title&gt;10]</strong><code>&gt; &lt; &gt;= &lt;= !=</code></td>
+<td><strong>选取 a元素的所有 title元素，且其中的 title元素的值须大于 10。</strong></td>
+</tr>
+<tr>
+<td><strong>&#x2F;body&#x2F;div[@price&gt;35.00]</strong></td>
+<td><strong>选取body下price元素值大于35的div节点</strong></td>
+</tr>
+<tr>
+<td><strong>&#x2F;&#x2F;dd[text()&#x3D;”原创”]</strong></td>
+<td><strong>选取文本是原创的dd标签</strong></td>
+</tr>
+</tbody></table>
+<h2 id="通配符-（选取未知节点）"><a href="#通配符-（选取未知节点）" class="headerlink" title="通配符 （选取未知节点）"></a>通配符 （选取未知节点）</h2><ul>
+<li>***** <strong>匹配任何元素节点。</strong></li>
+<li><em><strong><em><strong>@</strong></em>     <strong>匹配任何属性节点。</strong></strong></em></li>
+<li><strong><strong><strong>node()</strong>  <strong>匹配任何类型的节点。</strong></strong></strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>路径表达式</strong></th>
+<th><strong>结果</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>&#x2F;ul&#x2F;</strong>*</td>
+<td><strong>选取 ul 元素的所有子元素。</strong></td>
+</tr>
+<tr>
+<td><strong>&#x2F;&#x2F;</strong>*</td>
+<td><strong>选取文档中的所有元素。</strong></td>
+</tr>
+<tr>
+<td><strong>&#x2F;&#x2F;title[@*]</strong></td>
+<td><strong>选取所有带有属性的 title 元素。</strong></td>
+</tr>
+<tr>
+<td><strong>&#x2F;&#x2F;node()</strong></td>
+<td><strong>获取所有节点</strong></td>
+</tr>
+</tbody></table>
+<h2 id="多路径选取"><a href="#多路径选取" class="headerlink" title="多路径选取"></a>多路径选取</h2><h3 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">通过在路径表达式中使用“|”运算符，您可以选取若干个路径。</span><br><span class="line">查找属性可使用 and来选取满足多个条件的结果</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//div[@<span class="built_in">id</span>=<span class="string">&quot;head&quot;</span> <span class="keyword">and</span> @<span class="keyword">class</span>=<span class="string">&quot;s_down&quot;</span>] <span class="comment"># 查找所有id属性等于head并且class属性等于s_down的div标签</span></span><br><span class="line">//title | //price <span class="comment"># 选取文档中的所有 title 和 price 元素,“|”两边必须是完整的xpath路径</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="属性查询"><a href="#属性查询" class="headerlink" title="属性查询"></a>属性查询</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//div[@<span class="built_in">id</span>] <span class="comment"># 找所有包含id属性的div节点</span></span><br><span class="line">//div[@<span class="built_in">id</span>=<span class="string">&quot;maincontent&quot;</span>]  <span class="comment"># 查找所有id属性等于maincontent的div标签</span></span><br><span class="line">//@<span class="keyword">class</span></span><br><span class="line">//li[@name=<span class="string">&quot;xx&quot;</span>]//text()  <span class="comment"># 获取li标签name为xx的里面的文本内容</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="指定标签获取"><a href="#指定标签获取" class="headerlink" title="指定标签获取"></a>指定标签获取</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">//li[<span class="number">1</span>]/a/text()  <span class="comment"># 获取第一个</span></span><br><span class="line">//li[last()]/a/text()  <span class="comment"># 获取最后一个</span></span><br><span class="line">//li[last()-<span class="number">1</span>]/a/text()  <span class="comment"># 获取倒数第二个</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="模糊查询"><a href="#模糊查询" class="headerlink" title="模糊查询"></a>模糊查询</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//div[contains(@<span class="built_in">id</span>, <span class="string">&quot;he&quot;</span>)]  <span class="comment"># 查询所有id属性中包含he的div标签</span></span><br><span class="line">//div[starts-<span class="keyword">with</span>(@<span class="built_in">id</span>, <span class="string">&quot;he&quot;</span>)] <span class="comment"># 查询所有id属性中包以he开头的div标签</span></span><br><span class="line">//div/h1/text()  <span class="comment"># 查找所有div标签下的直接子节点h1的内容</span></span><br><span class="line">//div/a/@href   <span class="comment"># 获取a里面的href属性值 </span></span><br><span class="line">//*  <span class="comment">#获取所有</span></span><br><span class="line">//*[@<span class="keyword">class</span>=<span class="string">&quot;xx&quot;</span>]  <span class="comment">#获取所有class为xx的标签</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;htmllang=&quot;en&quot;&gt;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;metacharset=&quot;UTF-8&quot;/&gt;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>测试bs4<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>百里守约<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">&lt;divclass=&quot;song&quot;&gt;</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>李清照<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>王安石<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>苏轼<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>柳宗元<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.song.com/&quot;</span> <span class="attr">title</span>=<span class="string">&quot;赵匡胤&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_self&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">span</span>&gt;</span>this is span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        宋朝是最强大的王朝，不是军队的强大，而是经济很强大，国民都很有钱<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;du&quot;</span>&gt;</span>总为浮云能蔽日,长安不见使人愁 <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;http://www.baidu.com/meinv.jpg&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;tang&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.baidu.com&quot;</span> <span class="attr">title</span>=<span class="string">&quot;qing&quot;</span>&gt;</span>清明时节雨纷纷,路上行人欲断魂,借问酒家何处有,牧童遥指杏花村<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.163.com&quot;</span> <span class="attr">title</span>=<span class="string">&quot;qin&quot;</span>&gt;</span>秦时明月汉时关,万里长征人未还,但使龙城飞将在,不教胡马度阴山<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.126.com&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;qi&quot;</span>&gt;</span>岐王宅里寻常见,崔九堂前几度闻,正是江南好风景,落花时节又逢君<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.sina.com&quot;</span> <span class="attr">class</span>=<span class="string">&quot;du&quot;</span>&gt;</span>杜甫<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.dudu.com&quot;</span> <span class="attr">class</span>=<span class="string">&quot;du&quot;</span>&gt;</span>杜牧<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>杜小月<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">i</span>&gt;</span>度蜜月<span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.haha.com&quot;</span> <span class="attr">id</span>=<span class="string">&quot;feng&quot;</span>&gt;</span>凤凰台上凤凰游,凤去台空江自流,吴宫花草埋幽径,晋代衣冠成古丘<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查找id&#x3D;”feng”的a标签</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//a[@id=&#x27;feng&#x27;]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查找class&#x3D;”du”的a标签</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//a[@class=&#x27;du&#x27;]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查找第二个li标签</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//li[2]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>查找所有img标签</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//img</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>获取img标签的href属性值</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">//img/@href</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://houyudong1989.gitee.io/blog">侯玉东</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://houyudong1989.gitee.io/blog/2024/04/12/python/3%E3%80%81xpath%E4%BD%BF%E7%94%A8/">https://houyudong1989.gitee.io/blog/2024/04/12/python/3%E3%80%81xpath%E4%BD%BF%E7%94%A8/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://houyudong1989.gitee.io/blog" target="_blank">East'blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/blog/tags/xpath%E4%BD%BF%E7%94%A8/">xpath使用</a></div><div class="post_share"><div class="social-share" data-image="/blog/img/library1.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/blog/2024/04/12/python/4%E3%80%81%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95%E3%80%81URL%E7%BC%96%E7%A0%81%E5%92%8Cbase64%E7%BC%96%E7%A0%81/" title="摘要算法、URL编码和base64编"><img class="cover" src="/blog/img/library1.jpeg" onerror="onerror=null;src='/blog/img/friend_404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">摘要算法、URL编码和base64编</div></div></a></div><div class="next-post pull-right"><a href="/blog/2024/04/12/python/2%E3%80%81bs4%E4%BD%BF%E7%94%A8/" title="bs4"><img class="cover" src="/blog/img/library1.jpeg" onerror="onerror=null;src='/blog/img/friend_404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">bs4</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/blog/img/head.jpg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">侯玉东</div><div class="author-info__description">生命不息，奋斗不止</div></div><div class="card-info-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">61</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://gitee.com/houyudong1989"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/houyudong1989" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:420098321@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#xpath"><span class="toc-number">1.</span> <span class="toc-text">xpath</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#xpath%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-number">1.1.</span> <span class="toc-text">xpath的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xpath%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">xpath安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#xpath%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">xpath使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="toc-number">1.4.</span> <span class="toc-text">路径表达式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B0%93%E8%AF%AD"><span class="toc-number">1.5.</span> <span class="toc-text">谓语</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%9A%E9%85%8D%E7%AC%A6-%EF%BC%88%E9%80%89%E5%8F%96%E6%9C%AA%E7%9F%A5%E8%8A%82%E7%82%B9%EF%BC%89"><span class="toc-number">1.6.</span> <span class="toc-text">通配符 （选取未知节点）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E8%B7%AF%E5%BE%84%E9%80%89%E5%8F%96"><span class="toc-number">1.7.</span> <span class="toc-text">多路径选取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97"><span class="toc-number">1.7.1.</span> <span class="toc-text">逻辑运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%9E%E6%80%A7%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.7.2.</span> <span class="toc-text">属性查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E6%A0%87%E7%AD%BE%E8%8E%B7%E5%8F%96"><span class="toc-number">1.7.3.</span> <span class="toc-text">指定标签获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.7.4.</span> <span class="toc-text">模糊查询</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.8.</span> <span class="toc-text">示例</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/14/python/7%E3%80%81m3u8%E6%A0%BC%E5%BC%8F/" title="m3u8格式"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="m3u8格式"/></a><div class="content"><a class="title" href="/blog/2024/04/14/python/7%E3%80%81m3u8%E6%A0%BC%E5%BC%8F/" title="m3u8格式">m3u8格式</a><time datetime="2024-04-14T04:14:21.151Z" title="发表于 2024-04-14 12:14:21">2024-04-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/12/python/6%E3%80%81http%E5%8D%8F%E8%AE%AE/" title="http协议"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="http协议"/></a><div class="content"><a class="title" href="/blog/2024/04/12/python/6%E3%80%81http%E5%8D%8F%E8%AE%AE/" title="http协议">http协议</a><time datetime="2024-04-12T08:08:38.231Z" title="发表于 2024-04-12 16:08:38">2024-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/12/python/5%E3%80%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" title="加密算法"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="加密算法"/></a><div class="content"><a class="title" href="/blog/2024/04/12/python/5%E3%80%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" title="加密算法">加密算法</a><time datetime="2024-04-12T08:06:52.297Z" title="发表于 2024-04-12 16:06:52">2024-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/12/python/4%E3%80%81%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95%E3%80%81URL%E7%BC%96%E7%A0%81%E5%92%8Cbase64%E7%BC%96%E7%A0%81/" title="摘要算法、URL编码和base64编"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="摘要算法、URL编码和base64编"/></a><div class="content"><a class="title" href="/blog/2024/04/12/python/4%E3%80%81%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95%E3%80%81URL%E7%BC%96%E7%A0%81%E5%92%8Cbase64%E7%BC%96%E7%A0%81/" title="摘要算法、URL编码和base64编">摘要算法、URL编码和base64编</a><time datetime="2024-04-12T08:05:35.315Z" title="发表于 2024-04-12 16:05:35">2024-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/12/python/3%E3%80%81xpath%E4%BD%BF%E7%94%A8/" title="xpath使用"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="xpath使用"/></a><div class="content"><a class="title" href="/blog/2024/04/12/python/3%E3%80%81xpath%E4%BD%BF%E7%94%A8/" title="xpath使用">xpath使用</a><time datetime="2024-04-12T08:04:52.177Z" title="发表于 2024-04-12 16:04:52">2024-04-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 侯玉东</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/blog/js/utils.js"></script><script src="/blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="8873950678" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/blog/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

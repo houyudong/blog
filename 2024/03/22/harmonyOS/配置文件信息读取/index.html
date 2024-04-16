@@ -1,0 +1,501 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>配置文件信息读取 | East'blog</title><meta name="author" content="侯玉东"><meta name="copyright" content="侯玉东"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="配置文件信息读取">
+<meta property="og:type" content="article">
+<meta property="og:title" content="配置文件信息读取">
+<meta property="og:url" content="https://houyudong1989.gitee.io/blog/2024/03/22/harmonyOS/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E8%AF%BB%E5%8F%96/index.html">
+<meta property="og:site_name" content="East&#39;blog">
+<meta property="og:description" content="配置文件信息读取">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://houyudong1989.gitee.io/blog/img/library1.jpeg">
+<meta property="article:published_time" content="2024-03-22T06:50:39.014Z">
+<meta property="article:modified_time" content="2024-03-22T08:52:34.071Z">
+<meta property="article:author" content="侯玉东">
+<meta property="article:tag" content="harmonyOS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://houyudong1989.gitee.io/blog/img/library1.jpeg"><link rel="shortcut icon" href="/blog/img/head.jpg"><link rel="canonical" href="https://houyudong1989.gitee.io/blog/2024/03/22/harmonyOS/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E8%AF%BB%E5%8F%96/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/blog/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/blog/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '配置文件信息读取',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-22 16:52:34'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+  window.addEventListener('load',() => { preloader.endLoading() })
+
+  if (true) {
+    document.addEventListener('pjax:send', () => { preloader.initLoading() })
+    document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+  }
+})()</script><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/blog/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">61</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('/blog/img/library5.jpeg')"><nav id="nav"><span id="blog-info"><a href="/blog/" title="East'blog"><img class="site-icon" src="/blog/img/head.jpg"/><span class="site-name">East'blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/blog/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/blog/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/blog/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/blog/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/blog/link/"><i class="fa-fw fas fa-link"></i><span> 友联</span></a></div><div class="menus_item"><a class="site-page" href="/blog/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">配置文件信息读取</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-03-22T06:50:39.014Z" title="发表于 2024-03-22 14:50:39">2024-03-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-03-22T08:52:34.071Z" title="更新于 2024-03-22 16:52:34">2024-03-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/blog/categories/harmonyOS/">harmonyOS</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="配置文件信息读取"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="配置文件信息读取"><a href="#配置文件信息读取" class="headerlink" title="配置文件信息读取"></a>配置文件信息读取</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">鸿蒙应用的配置文件主要有以下几种</span><br><span class="line">app.json5  </span><br><span class="line">module.json5</span><br><span class="line">build-profile.json5</span><br><span class="line">oh-package.json5</span><br></pre></td></tr></table></figure>
+
+<h2 id="app-json5"><a href="#app-json5" class="headerlink" title="app.json5"></a><a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/app-configuration-file-0000001427584584-V2">app.json5</a></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">在基于Stage模型开发的应用项目代码下，只存在一个app.json5。</span><br><span class="line">应用的全局配置信息，包含应用的包名、开发厂商、版本号等基本信息。</span><br><span class="line">特定设备类型的配置信息。</span><br></pre></td></tr></table></figure>
+
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;app&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;bundleName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;com.application.myapplication&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;vendor&quot;</span><span class="punctuation">:</span> <span class="string">&quot;example&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;versionCode&quot;</span><span class="punctuation">:</span> <span class="number">1000000</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;versionName&quot;</span><span class="punctuation">:</span> <span class="string">&quot;1.0.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;icon&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$media:app_icon&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$string:app_name&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$string:description_application&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;minAPIVersion&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;targetAPIVersion&quot;</span><span class="punctuation">:</span> <span class="number">9</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;apiReleaseType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Release&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;debug&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;car&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;minAPIVersion&quot;</span><span class="punctuation">:</span> <span class="number">8</span><span class="punctuation">,</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字段描述"><a href="#字段描述" class="headerlink" title="字段描述"></a>字段描述</h3><table>
+<thead>
+<tr>
+<th align="left">属性名称</th>
+<th align="left">含义</th>
+<th align="left">数据类型</th>
+<th align="left">是否可缺省</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">bundleName</td>
+<td align="left">标识应用的Bundle名称，用于标识应用的唯一性。该标签不可缺省。标签的值命名规则 ：- 字符串以字母、数字、下划线和符号“.”组成。- 以字母开头。- 最小长度7个字节，最大长度127个字节。推荐采用反域名形式命名（如com.example.demo，建议第一级为域名后缀com，第二级为厂商&#x2F;个人名，第三级为应用名，也可以多级）。</td>
+<td align="left">字符串</td>
+<td align="left">该标签不可缺省。</td>
+</tr>
+<tr>
+<td align="left">bundleType</td>
+<td align="left">标识应用的Bundle类型，用于区分应用或者原子化服务。该标签可选值为app和atomicService ：- app：当前Bundle为普通应用。- atomicService：当前Bundle为元服务。</td>
+<td align="left">字符串</td>
+<td align="left">该标签可以缺省，缺省为app。</td>
+</tr>
+<tr>
+<td align="left">debug</td>
+<td align="left">标识应用是否可调试，该标签由IDE编译构建时生成。- true：可调试。- false：不可调试。</td>
+<td align="left">布尔值</td>
+<td align="left">该标签可以缺省，缺省为false。</td>
+</tr>
+<tr>
+<td align="left">icon</td>
+<td align="left">标识<a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/application-component-configuration-stage-0000001478340869-V2">应用的图标</a>，标签值为图标资源文件的索引。</td>
+<td align="left">字符串</td>
+<td align="left">该标签不可缺省。</td>
+</tr>
+<tr>
+<td align="left">label</td>
+<td align="left">标识<a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/application-component-configuration-stage-0000001478340869-V2">应用的名称</a>，标签值为字符串资源的索引。</td>
+<td align="left">字符串</td>
+<td align="left">该标签不可缺省。</td>
+</tr>
+<tr>
+<td align="left">description</td>
+<td align="left">标识应用的描述信息，标签值是字符串类型（最大255个字节）或对描述内容的字符串资源索引。</td>
+<td align="left">字符串</td>
+<td align="left">该标签可缺省，缺省值为空。</td>
+</tr>
+<tr>
+<td align="left">vendor</td>
+<td align="left">标识对应用开发厂商的描述。该标签的值是字符串类型（最大255个字节）。</td>
+<td align="left">字符串</td>
+<td align="left">该标签可以缺省，缺省为空。</td>
+</tr>
+<tr>
+<td align="left">versionCode</td>
+<td align="left">标识应用的版本号，该标签值为32位非负整数。此数字仅用于确定某个版本是否比另一个版本更新，数值越大表示版本越高。开发者可以将该值设置为任何正整数，但是必须确保应用的新版本都使用比旧版本更大的值。该标签不可缺省，versionCode值应小于2^31次方。</td>
+<td align="left">数值</td>
+<td align="left">该标签不可缺省。</td>
+</tr>
+<tr>
+<td align="left">versionName</td>
+<td align="left">标识应用版本号的文字描述，用于向用户展示。该标签仅由数字和点构成，推荐采用“A.B.C.D”四段式的形式。四段式推荐的含义如下所示。第一段：主版本号&#x2F;Major，范围0-99，重大修改的版本，如实现新的大功能或重大变化。第二段：次版本号&#x2F;Minor，范围0-99，表示实现较突出的特点，如新功能添加或大问题修复。第三段：特性版本号&#x2F;Feature，范围0-99，标识规划的新版本特性。第四段：修订版本号&#x2F;Patch，范围0-999，表示维护版本，修复bug。标签最大字节长度为127。</td>
+<td align="left">字符串</td>
+<td align="left">该标签不可缺省。</td>
+</tr>
+<tr>
+<td align="left">minCompatibleVersionCode</td>
+<td align="left">标识应用能够兼容的最低历史版本号，用于跨设备兼容性判断。说明当前版本暂不支持跨设备能力。</td>
+<td align="left">数值</td>
+<td align="left">该标签可缺省，缺省值等于versionCode标签值。</td>
+</tr>
+<tr>
+<td align="left">minAPIVersion</td>
+<td align="left">标识应用运行需要的SDK的API最小版本。</td>
+<td align="left">数值</td>
+<td align="left">由build-profile.json5中的compatibleSdkVersion生成。</td>
+</tr>
+<tr>
+<td align="left">targetAPIVersion</td>
+<td align="left">标识应用运行需要的API目标版本。</td>
+<td align="left">数值</td>
+<td align="left">由build-profile.json5中的compileSdkVersion生成。</td>
+</tr>
+<tr>
+<td align="left">apiReleaseType</td>
+<td align="left">标识应用运行需要的API目标版本的类型，采用字符串类型表示。取值为“CanaryN”、“BetaN”或者“Release”，其中，N代表大于零的整数。- Canary：受限发布的版本。- Beta：公开发布的Beta版本。- Release：公开发布的正式版本。该字段由DevEco Studio读取当前使用的SDK的Stage来生成。</td>
+<td align="left">字符串</td>
+<td align="left">该标签可缺省，由IDE生成并覆盖。</td>
+</tr>
+<tr>
+<td align="left">multiProjects</td>
+<td align="left">标识当前工程是否支持多个工程的联合开发。- true：当前工程支持多个工程的联合开发。- false：当前工程不支持多个工程的联合开发。多工程开发可以参考文档：<a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/build_overview-0000001055075201-V2#section73401914284">多工程构建</a>。</td>
+<td align="left">布尔值</td>
+<td align="left">可缺省，缺省值为false。</td>
+</tr>
+<tr>
+<td align="left">tablet</td>
+<td align="left">标识对tablet设备做的特殊配置，可以配置的属性字段有上文提到的：minAPIVersion、distributedNotificationEnabled。如果使用该属性对tablet设备做了特殊配置，则应用在tablet设备中会采用此处配置的属性值，并忽略在app.json5公共区域配置的属性值。</td>
+<td align="left">对象</td>
+<td align="left">该标签可缺省，缺省时tablet设备使用app.json5公共区域配置的属性值。</td>
+</tr>
+<tr>
+<td align="left">tv</td>
+<td align="left">标识对tv设备做的特殊配置，可以配置的属性字段有上文提到的：minAPIVersion、distributedNotificationEnabled。如果使用该属性对tv设备做了特殊配置，则应用在tv设备中会采用此处配置的属性值，并忽略在app.json5公共区域配置的属性值。</td>
+<td align="left">对象</td>
+<td align="left">该标签可缺省，缺省时tv设备使用app.json5公共区域配置的属性值。</td>
+</tr>
+<tr>
+<td align="left">wearable</td>
+<td align="left">标识对wearable设备做的特殊配置，可以配置的属性字段有上文提到的：minAPIVersion、distributedNotificationEnabled。如果使用该属性对wearable设备做了特殊配置，则应用在wearable设备中会采用此处配置的属性值，并忽略在app.json5公共区域配置的属性值。</td>
+<td align="left">对象</td>
+<td align="left">该标签可缺省，缺省时wearable设备使用app.json5公共区域配置的属性值。</td>
+</tr>
+<tr>
+<td align="left">car</td>
+<td align="left">标识对car设备做的特殊配置，可以配置的属性字段有上文提到的：minAPIVersion、distributedNotificationEnabled。如果使用该属性对car设备做了特殊配置，则应用在car设备中会采用此处配置的属性值，并忽略在app.json5公共区域配置的属性值。</td>
+<td align="left">对象</td>
+<td align="left">该标签可缺省，缺省时car设备使用app.json5公共区域配置的属性值。</td>
+</tr>
+<tr>
+<td align="left">phone</td>
+<td align="left">标识对phone设备做的特殊配置，可以配置的属性字段有上文提到的：minAPIVersion、distributedNotificationEnabled。如果使用该属性对phone设备做了特殊配置，则应用在phone设备中会采用此处配置的属性值，并忽略在app.json5公共区域配置的属性值。</td>
+<td align="left">对象</td>
+<td align="left">该标签可缺省，缺省时phone设备使用app.json5公共区域配置的属性值。</td>
+</tr>
+</tbody></table>
+<h3 id="内容读取"><a href="#内容读取" class="headerlink" title="内容读取"></a>内容读取</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">需要设置bundle读取权限</span><br><span class="line"> &quot;requestPermissions&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;name&quot;: &#x27;ohos.permission.GET_BUNDLE_INFO&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    ]  </span><br><span class="line">-------------------------------------------------------------------------------------------------------</span><br><span class="line"> bundleManager.getBundleInfoForSelf(bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION).then((bundleInfo) =&gt; &#123;</span><br><span class="line">       this.versionName = bundleInfo.versionName; //应用版本名</span><br><span class="line">       this.versionCode = bundleInfo.versionCode; //应用版本名</span><br><span class="line">    &#125;).catch((error) =&gt; &#123;</span><br><span class="line">      console.error(&quot;get bundleInfo failed,error is &quot; + error)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="module-json5"><a href="#module-json5" class="headerlink" title="module.json5"></a><a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/module-configuration-file-0000001427744540-V2">module.json5</a></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Module的基本配置信息，例如Module名称、类型、描述、支持的设备类型等基本信息。</span><br><span class="line">[应用组件]信息，包含UIAbility组件和ExtensionAbility组件的描述信息。</span><br><span class="line">应用运行过程中所需的权限信息。</span><br></pre></td></tr></table></figure>
+
+<h3 id="示例-1"><a href="#示例-1" class="headerlink" title="示例"></a>示例</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;module&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;entry&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;entry&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$string:module_desc&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;mainElement&quot;</span><span class="punctuation">:</span> <span class="string">&quot;EntryAbility&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;deviceTypes&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="string">&quot;tv&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="string">&quot;tablet&quot;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;deliveryWithInstall&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;installationFree&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;pages&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$profile:main_pages&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;virtualMachine&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ark&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;metadata&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;value&quot;</span><span class="punctuation">:</span> <span class="string">&quot;string&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;resource&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$profile:distributionFilter_config&quot;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;abilities&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;EntryAbility&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;srcEntry&quot;</span><span class="punctuation">:</span> <span class="string">&quot;./ets/entryability/EntryAbility.ts&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;description&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$string:EntryAbility_desc&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;icon&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$media:icon&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;label&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$string:EntryAbility_label&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;startWindowIcon&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$media:icon&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;startWindowBackground&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$color:start_window_background&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;exported&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;skills&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">          <span class="punctuation">&#123;</span></span><br><span class="line">            <span class="attr">&quot;entities&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">              <span class="string">&quot;entity.system.home&quot;</span></span><br><span class="line">            <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">            <span class="attr">&quot;actions&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">              <span class="string">&quot;ohos.want.action.home&quot;</span></span><br><span class="line">            <span class="punctuation">]</span></span><br><span class="line">          <span class="punctuation">&#125;</span></span><br><span class="line">        <span class="punctuation">]</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;requestPermissions&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">      <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;name&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ohos.abilitydemo.permission.PROVIDER&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;reason&quot;</span><span class="punctuation">:</span> <span class="string">&quot;$string:reason&quot;</span><span class="punctuation">,</span></span><br><span class="line">        <span class="attr">&quot;usedScene&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;abilities&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">            <span class="string">&quot;FormAbility&quot;</span></span><br><span class="line">          <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;when&quot;</span><span class="punctuation">:</span> <span class="string">&quot;inuse&quot;</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">]</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字段描述-1"><a href="#字段描述-1" class="headerlink" title="字段描述"></a>字段描述</h3><table>
+<thead>
+<tr>
+<th align="left">属性名称</th>
+<th align="left">含义</th>
+<th align="left">数据类型</th>
+<th align="left">是否可缺省</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">name</td>
+<td align="left">标识当前Module的名称，标签值采用字符串表示（最大长度31个字节），该名称在整个应用要唯一，仅支持英文字符。</td>
+<td align="left">字符串</td>
+<td align="left">该标签不可缺省。</td>
+</tr>
+<tr>
+<td align="left">type</td>
+<td align="left">标识当前Module的类型。类型有两种，分别：- entry：应用的主模块。- feature：应用的动态特性模块。</td>
+<td align="left">字符串</td>
+<td align="left">该标签不可缺省。</td>
+</tr>
+<tr>
+<td align="left">srcEntry</td>
+<td align="left">标识当前Module所对应的代码路径，标签值为字符串（最长为127字节）。</td>
+<td align="left">字符串</td>
+<td align="left">该标签可缺省，缺省值为空。</td>
+</tr>
+<tr>
+<td align="left">description</td>
+<td align="left">标识当前Module的描述信息，标签值是字符串类型（最长255字节）或对描述内容的字符串资源索引。</td>
+<td align="left">字符串</td>
+<td align="left">该标签可缺省，缺省值为空。</td>
+</tr>
+<tr>
+<td align="left">process</td>
+<td align="left">标识当前Module的进程名，标签值为字符串类型（最长为31个字节）。如果在HAP标签下配置了process，该应用的所有UIAbility、DataShareExtensionAbility、ServiceExtensionAbility都运行在该进程中。<strong>说明：</strong>- 仅支持系统应用配置，三方应用配置不生效。</td>
+<td align="left">字符串</td>
+<td align="left">可缺省，缺省为app.json5文件下app标签下的bundleName。</td>
+</tr>
+<tr>
+<td align="left">mainElement</td>
+<td align="left">标识当前Module的入口UIAbility名称或者ExtensionAbility名称。标签最大字节长度为255。</td>
+<td align="left">字符串</td>
+<td align="left">该标签可缺省，缺省值为空。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/module-configuration-file-0000001427744540-V2#ZH-CN_TOPIC_0000001573929365__devicetypes%E6%A0%87%E7%AD%BE">deviceTypes</a></td>
+<td align="left">标识当前Module可以运行在哪类设备上，标签值采用字符串数组的表示。</td>
+<td align="left">字符串数组</td>
+<td align="left">该标签不可缺省。</td>
+</tr>
+<tr>
+<td align="left">deliveryWithInstall</td>
+<td align="left">标识当前Module是否在用户主动安装的时候安装，表示该Module对应的HAP是否跟随应用一起安装。- true：主动安装时安装。- false：主动安装时不安装。</td>
+<td align="left">布尔值</td>
+<td align="left">该标签不可缺省。</td>
+</tr>
+<tr>
+<td align="left">installationFree</td>
+<td align="left">标识当前Module是否支持免安装特性。- true：表示支持免安装特性，且符合免安装约束。- false：表示不支持免安装特性。<strong>说明：</strong>- 当应用的entry类型Module的该字段配置为true时，该应用的feature类型的该字段也需要配置为true。- 当应用的entry类型Module的该字段配置为false时，该应用的feature类型的该字段根据业务需求配置true或false。</td>
+<td align="left">布尔值</td>
+<td align="left">该标签不可缺省。</td>
+</tr>
+<tr>
+<td align="left">virtualMachine</td>
+<td align="left">标识当前Module运行的目标虚拟机类型，供云端分发使用，如应用市场和分发中心。该标签值为字符串。如果目标虚拟机类型为ArkTS引擎，则其值为“ark+版本号”。</td>
+<td align="left">字符串</td>
+<td align="left">该标签由IDE构建HAP的时候自动插入。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/module-configuration-file-0000001427744540-V2#ZH-CN_TOPIC_0000001573929365__pages%E6%A0%87%E7%AD%BE">pages</a></td>
+<td align="left">标识当前Module的profile资源，用于列举每个页面信息。该标签最大长度为255个字节。</td>
+<td align="left">字符串</td>
+<td align="left">在有UIAbility的场景下，该标签不可缺省。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/module-configuration-file-0000001427744540-V2#ZH-CN_TOPIC_0000001573929365__metadata%E6%A0%87%E7%AD%BE">metadata</a></td>
+<td align="left">标识当前Module的自定义元信息，标签值为数组类型，只对当前Module、UIAbility、ExtensionAbility生效。</td>
+<td align="left">对象数组</td>
+<td align="left">该标签可缺省，缺省值为空。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/module-configuration-file-0000001427744540-V2#ZH-CN_TOPIC_0000001573929365__abilities%E6%A0%87%E7%AD%BE">abilities</a></td>
+<td align="left">标识当前Module中UIAbility的配置信息，标签值为数组类型，只对当前UIAbility生效。</td>
+<td align="left">对象</td>
+<td align="left">该标签可缺省，缺省值为空。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/module-configuration-file-0000001427744540-V2#ZH-CN_TOPIC_0000001573929365__extensionabilities%E6%A0%87%E7%AD%BE">extensionAbilities</a></td>
+<td align="left">标识当前Module中ExtensionAbility的配置信息，标签值为数组类型，只对当前ExtensionAbility生效。</td>
+<td align="left">对象</td>
+<td align="left">该标签可缺省，缺省值为空。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/module-configuration-file-0000001427744540-V2#ZH-CN_TOPIC_0000001573929365__requestpermissions%E6%A0%87%E7%AD%BE">requestPermissions</a></td>
+<td align="left">标识当前应用运行时需向系统申请的权限集合。</td>
+<td align="left">对象</td>
+<td align="left">该标签可缺省，缺省值为空。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/module-configuration-file-0000001427744540-V2#ZH-CN_TOPIC_0000001573929365__testrunner%E6%A0%87%E7%AD%BE">testRunner</a></td>
+<td align="left">标识当前Module用于支持对测试框架的配置。</td>
+<td align="left">对象</td>
+<td align="left">该标签可缺省，缺省值为空。</td>
+</tr>
+</tbody></table>
+<h3 id="内容读取-1"><a href="#内容读取-1" class="headerlink" title="内容读取"></a>内容读取</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">需要设置bundle读取权限</span><br><span class="line"> &quot;requestPermissions&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;name&quot;: &#x27;ohos.permission.GET_BUNDLE_INFO&#x27;</span><br><span class="line">      &#125;</span><br><span class="line">    ]  </span><br><span class="line">-------------------------------------------------------------------------------------------------------</span><br><span class="line">  let bundleFlags = bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION</span><br><span class="line">      | bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_METADATA</span><br><span class="line">      | bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_HAP_MODULE</span><br><span class="line">      | bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_ABILITY;</span><br><span class="line"></span><br><span class="line">    bundleManager.getBundleInfoForSelf(bundleFlags).then((bundleInfo) =&gt; &#123;</span><br><span class="line">      console.error(&quot;bundleInfo &quot; + JSON.stringify(bundleInfo) )</span><br><span class="line">      console.error(&quot;bundleInfo &quot; + bundleInfo.vendor )</span><br><span class="line">      console.error(&quot;bundleInfo &quot; + bundleInfo.versionCode )</span><br><span class="line">      console.error(&quot;bundleInfo &quot; + bundleInfo.versionName )</span><br><span class="line">      console.error(&quot;bundleInfo &quot; + bundleInfo.targetVersion )</span><br><span class="line">      console.error(&quot;appInfo &quot; + bundleInfo.appInfo.name )</span><br><span class="line">      console.error(&quot;appInfo &quot; + bundleInfo.appInfo.label )</span><br><span class="line">      console.error(&quot;hapModulesInfo &quot; + bundleInfo.hapModulesInfo[0].metadata[0].name)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="build-profile-json5"><a href="#build-profile-json5" class="headerlink" title="build-profile.json5"></a>build-profile.json5</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">应用/服务构建配置文件,分为工程级和模块级。每个项目根目录下有一个工程级别的build-profile.json5文件，用于构建整个项目，在项目中的单个模块中，各有一个属于模块的build-profile.json5文件，用于构建当前模块。</span><br></pre></td></tr></table></figure>
+
+<h3 id="工程级别build-profile-json5示例"><a href="#工程级别build-profile-json5示例" class="headerlink" title="工程级别build-profile.json5示例"></a>工程级别build-profile.json5示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;app&quot;: &#123; </span><br><span class="line">    //工程的签名信息，可包含多个签名信息</span><br><span class="line">    &quot;signingConfigs&quot;: [  </span><br><span class="line">      &#123;</span><br><span class="line">        &quot;name&quot;: &quot;default&quot;,  //标识签名方案的名称</span><br><span class="line">        &quot;type&quot;: &quot;HarmonyOS&quot;,  //标识HarmonyOS应用</span><br><span class="line">        //该方案的签名材料</span><br><span class="line">        &quot;material&quot;: &#123;  </span><br><span class="line">          &quot;certpath&quot;: &quot;D:\\SigningConfig\\debug_hos.cer&quot;,  //调试或发布证书文件，格式为.cer</span><br><span class="line">          &quot;storePassword&quot;: &quot;******&quot;,  //密钥库密码，以密文形式呈现</span><br><span class="line">          &quot;keyAlias&quot;: &quot;debugKey&quot;,  //密钥别名信息</span><br><span class="line">          &quot;keyPassword&quot;: &quot;******&quot;,  //密钥密码，以密文形式呈现</span><br><span class="line">          &quot;profile&quot;: &quot;D:\\SigningConfig\\debug_hos.p7b&quot;,  //调试或发布证书Profile文件，格式为.p7b</span><br><span class="line">          &quot;signAlg&quot;: &quot;SHA256withECDSA&quot;,  //密钥库signAlg参数</span><br><span class="line">          &quot;storeFile&quot;: &quot;D:\\SigningConfig\\debug_hos.p12&quot;  //密钥库文件，格式为.p12</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;compileSdkVersion&quot;: 9,  //指定HarmonyOS应用/服务编译时的SDK版本</span><br><span class="line">    &quot;compatibleSdkVersion&quot;: 9,  //指定HarmonyOS应用/服务兼容的最低SDK版本</span><br><span class="line">    //定义构建的产品品类，如通用默认版、付费版、免费版等</span><br><span class="line">    &quot;products&quot;: [  </span><br><span class="line">      &#123;</span><br><span class="line">        &quot;name&quot;: &quot;default&quot;,  //定义产品的名称，支持定制多product目标产物，具体请参考定制多目标构建产物</span><br><span class="line">        &quot;signingConfig&quot;: &quot;default&quot;,  //指定当前产品品类对应的签名信息，签名信息需要在signingConfigs中进行定义</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;modules&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;: &quot;entry&quot;,  //模块名称</span><br><span class="line">      &quot;srcPath&quot;: &quot;./entry&quot;,  //标明模块根目录相对工程根目录的相对路径</span><br><span class="line">      &quot;targets&quot;: [  //定义构建的APP产物，由product和各模块定义的targets共同定义</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;name&quot;: &quot;default&quot;,  //target名称，由各个模块的build-profile.json5中的targets字段定义</span><br><span class="line">          &quot;applyToProducts&quot;: [  </span><br><span class="line">            &quot;default&quot;   //表示将该模块下的“default” Target打包到“default” Product中</span><br><span class="line">          ]</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="模块级别build-profile-json5示例"><a href="#模块级别build-profile-json5示例" class="headerlink" title="模块级别build-profile.json5示例"></a>模块级别build-profile.json5示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;apiType&quot;: &#x27;faMode&#x27;,  //API类型，支持FA和Stage模型</span><br><span class="line">  &quot;showInServiceCenter&quot;: true,  //是否在服务中心展示</span><br><span class="line">  &quot;buildOption&quot;: &#123;</span><br><span class="line">    //配置筛选har依赖.so资源文件的过滤规则</span><br><span class="line">    &quot;napiLibFilterOption&quot;: &#123;</span><br><span class="line">      //按照.so文件的优先级顺序，打包最高优先级的.so文件</span><br><span class="line">      &quot;pickFirsts&quot;: [</span><br><span class="line">        &quot;**/1.so&quot;</span><br><span class="line">      ],</span><br><span class="line">      //按照.so文件的优先级顺序，打包最低优先级的.so 文件</span><br><span class="line">      &quot;pickLasts&quot;: [</span><br><span class="line">        &quot;**/2.so&quot;</span><br><span class="line">      ],</span><br><span class="line">      //排除的.so文件</span><br><span class="line">      &quot;excludes&quot;: [</span><br><span class="line">        &quot;**/3.so&quot;</span><br><span class="line">      ],</span><br><span class="line">      //允许当.so重名冲突时，使用高优先级的.so文件覆盖低优先级的.so文件</span><br><span class="line">      &quot;enableOverride&quot;: true</span><br><span class="line">    &#125;,</span><br><span class="line">    //cpp相关编译配置</span><br><span class="line">    &quot;externalNativeOptions&quot;: &#123;</span><br><span class="line">      &quot;path&quot;: &quot;./src/main/cpp/CMakeLists.txt&quot;,  //CMake配置文件，提供CMake构建脚本</span><br><span class="line">      &quot;arguments&quot;: &quot;&quot;,  //传递给CMake的可选编译参数</span><br><span class="line">      &quot;abiFilters&quot;: [  //用于设置本机的ABI编译环境</span><br><span class="line">        &quot;armeabi-v7a&quot;,</span><br><span class="line">        &quot;arm64-v8a&quot;</span><br><span class="line">      ],</span><br><span class="line">      &quot;cppFlags&quot;: &quot;&quot;  //设置C++编译器的可选参数</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;targets&quot;: [  //定义的Target，开发者可以定制不同的Target，具体请参考定制多目标构建产物</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;: &quot;default&quot;,</span><br><span class="line">      &quot;runtimeOS&quot;: &quot;HarmonyOS&quot;,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;name&quot;: &quot;ohosTest&quot;,</span><br><span class="line">    &#125;  </span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="oh-package-json5"><a href="#oh-package-json5" class="headerlink" title="oh-package.json5"></a>oh-package.json5</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">应用/服务支持通过ohpm来安装、共享、分发代码，管理项目的依赖关系。oh-package.json5格式遵循标准的ohpm规范。</span><br></pre></td></tr></table></figure>
+
+<h3 id="工程级别oh-package-json5示例"><a href="#工程级别oh-package-json5示例" class="headerlink" title="工程级别oh-package.json5示例"></a>工程级别oh-package.json5示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;myapplication&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;Please describe the basic information.&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;&quot;,</span><br><span class="line">  &quot;author&quot;: &quot;&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;&quot;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;&#125;,</span><br><span class="line">  &quot;devDependencies&quot;: &#123;</span><br><span class="line">    &quot;@ohos/hypium&quot;: &quot;1.0.6&quot;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="模块级别oh-package-json5示例"><a href="#模块级别oh-package-json5示例" class="headerlink" title="模块级别oh-package.json5示例"></a>模块级别oh-package.json5示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;entry&quot;,</span><br><span class="line">  &quot;version&quot;: &quot;1.0.0&quot;,</span><br><span class="line">  &quot;description&quot;: &quot;Please describe the basic information.&quot;,</span><br><span class="line">  &quot;main&quot;: &quot;index.ets&quot;,</span><br><span class="line">  &quot;author&quot;: &quot;&quot;,</span><br><span class="line">  &quot;license&quot;: &quot;&quot;,</span><br><span class="line">  &quot;dependencies&quot;: &#123;&#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">let bundleFlags = bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_APPLICATION</span><br><span class="line">| bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_METADATA</span><br><span class="line">| bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_HAP_MODULE</span><br><span class="line">| bundleManager.BundleFlag.GET_BUNDLE_INFO_WITH_ABILITY;</span><br><span class="line"></span><br><span class="line">bundleManager.getBundleInfoForSelf(bundleFlags).then((bundleInfo) =&gt; &#123;</span><br><span class="line">  Logger.i(&quot;getBundleInfoForSelf:&quot; + JSON.stringify(bundleInfo.appInfo.metadata))</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://houyudong1989.gitee.io/blog">侯玉东</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://houyudong1989.gitee.io/blog/2024/03/22/harmonyOS/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E8%AF%BB%E5%8F%96/">https://houyudong1989.gitee.io/blog/2024/03/22/harmonyOS/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E8%AF%BB%E5%8F%96/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://houyudong1989.gitee.io/blog" target="_blank">East'blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/blog/tags/harmonyOS/">harmonyOS</a></div><div class="post_share"><div class="social-share" data-image="/blog/img/library1.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/blog/2024/03/25/harmonyOS/commonevent%E3%80%81eventhub%E3%80%81emitter%E5%92%8Cworker%E4%BD%BF%E7%94%A8/" title="commonevent、eventhub、emitter和worker使用"><img class="cover" src="/blog/img/library1.jpeg" onerror="onerror=null;src='/blog/img/friend_404.gif'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">commonevent、eventhub、emitter和worker使用</div></div></a></div><div class="next-post pull-right"><a href="/blog/2024/03/21/harmonyOS/stage%E6%A8%A1%E5%9E%8B/" title="stage模型"><img class="cover" src="/blog/img/library1.jpeg" onerror="onerror=null;src='/blog/img/friend_404.gif'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">stage模型</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/blog/2024/01/20/harmonyOS/ArkUI-X/" title="ArkUI-X"><img class="cover" src="/blog/img/library1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-01-20</div><div class="title">ArkUI-X</div></div></a></div><div><a href="/blog/2023/11/05/harmonyOS/hdc/" title="hdc 使用帮助"><img class="cover" src="/blog/img/library1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-05</div><div class="title">hdc 使用帮助</div></div></a></div><div><a href="/blog/2024/03/25/harmonyOS/commonevent%E3%80%81eventhub%E3%80%81emitter%E5%92%8Cworker%E4%BD%BF%E7%94%A8/" title="commonevent、eventhub、emitter和worker使用"><img class="cover" src="/blog/img/library1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2024-03-25</div><div class="title">commonevent、eventhub、emitter和worker使用</div></div></a></div><div><a href="/blog/2023/12/15/harmonyOS/Canvas%E7%BB%98%E5%88%B6%E6%8A%98%E7%BA%BF%E5%9B%BE/" title="canvas绘制折线图"><img class="cover" src="/blog/img/library1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-15</div><div class="title">canvas绘制折线图</div></div></a></div><div><a href="/blog/2023/11/29/harmonyOS/want%E6%98%BE%E5%BC%8F%E9%9A%90%E5%BC%8F%E8%A7%84%E5%88%99/" title="want显式隐式规则"><img class="cover" src="/blog/img/library1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-29</div><div class="title">want显式隐式规则</div></div></a></div><div><a href="/blog/2023/11/24/harmonyOS/%E5%83%8F%E7%B4%A0%E5%8D%95%E4%BD%8D/" title="像素单位"><img class="cover" src="/blog/img/library1.jpeg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-24</div><div class="title">像素单位</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/blog/img/head.jpg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">侯玉东</div><div class="author-info__description">生命不息，奋斗不止</div></div><div class="card-info-data site-data is-center"><a href="/blog/archives/"><div class="headline">文章</div><div class="length-num">61</div></a><a href="/blog/tags/"><div class="headline">标签</div><div class="length-num">19</div></a><a href="/blog/categories/"><div class="headline">分类</div><div class="length-num">11</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://gitee.com/houyudong1989"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://gitee.com/houyudong1989" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:420098321@qq.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客！！！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BF%A1%E6%81%AF%E8%AF%BB%E5%8F%96"><span class="toc-number">1.</span> <span class="toc-text">配置文件信息读取</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#app-json5"><span class="toc-number">1.1.</span> <span class="toc-text">app.json5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.1.1.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E6%AE%B5%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.1.2.</span> <span class="toc-text">字段描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E8%AF%BB%E5%8F%96"><span class="toc-number">1.1.3.</span> <span class="toc-text">内容读取</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#module-json5"><span class="toc-number">1.2.</span> <span class="toc-text">module.json5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B-1"><span class="toc-number">1.2.1.</span> <span class="toc-text">示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E6%AE%B5%E6%8F%8F%E8%BF%B0-1"><span class="toc-number">1.2.2.</span> <span class="toc-text">字段描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E5%AE%B9%E8%AF%BB%E5%8F%96-1"><span class="toc-number">1.2.3.</span> <span class="toc-text">内容读取</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#build-profile-json5"><span class="toc-number">1.3.</span> <span class="toc-text">build-profile.json5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E7%BA%A7%E5%88%ABbuild-profile-json5%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.3.1.</span> <span class="toc-text">工程级别build-profile.json5示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%BA%A7%E5%88%ABbuild-profile-json5%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.3.2.</span> <span class="toc-text">模块级别build-profile.json5示例</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#oh-package-json5"><span class="toc-number">1.4.</span> <span class="toc-text">oh-package.json5</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E7%BA%A7%E5%88%ABoh-package-json5%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.4.1.</span> <span class="toc-text">工程级别oh-package.json5示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%BA%A7%E5%88%ABoh-package-json5%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.4.2.</span> <span class="toc-text">模块级别oh-package.json5示例</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/14/python/7%E3%80%81m3u8%E6%A0%BC%E5%BC%8F/" title="m3u8格式"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="m3u8格式"/></a><div class="content"><a class="title" href="/blog/2024/04/14/python/7%E3%80%81m3u8%E6%A0%BC%E5%BC%8F/" title="m3u8格式">m3u8格式</a><time datetime="2024-04-14T04:14:21.151Z" title="发表于 2024-04-14 12:14:21">2024-04-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/12/python/6%E3%80%81http%E5%8D%8F%E8%AE%AE/" title="http协议"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="http协议"/></a><div class="content"><a class="title" href="/blog/2024/04/12/python/6%E3%80%81http%E5%8D%8F%E8%AE%AE/" title="http协议">http协议</a><time datetime="2024-04-12T08:08:38.231Z" title="发表于 2024-04-12 16:08:38">2024-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/12/python/5%E3%80%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" title="加密算法"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="加密算法"/></a><div class="content"><a class="title" href="/blog/2024/04/12/python/5%E3%80%81%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" title="加密算法">加密算法</a><time datetime="2024-04-12T08:06:52.297Z" title="发表于 2024-04-12 16:06:52">2024-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/12/python/4%E3%80%81%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95%E3%80%81URL%E7%BC%96%E7%A0%81%E5%92%8Cbase64%E7%BC%96%E7%A0%81/" title="摘要算法、URL编码和base64编"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="摘要算法、URL编码和base64编"/></a><div class="content"><a class="title" href="/blog/2024/04/12/python/4%E3%80%81%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95%E3%80%81URL%E7%BC%96%E7%A0%81%E5%92%8Cbase64%E7%BC%96%E7%A0%81/" title="摘要算法、URL编码和base64编">摘要算法、URL编码和base64编</a><time datetime="2024-04-12T08:05:35.315Z" title="发表于 2024-04-12 16:05:35">2024-04-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/blog/2024/04/12/python/3%E3%80%81xpath%E4%BD%BF%E7%94%A8/" title="xpath使用"><img src="/blog/img/library1.jpeg" onerror="this.onerror=null;this.src='/blog/img/friend_404.gif'" alt="xpath使用"/></a><div class="content"><a class="title" href="/blog/2024/04/12/python/3%E3%80%81xpath%E4%BD%BF%E7%94%A8/" title="xpath使用">xpath使用</a><time datetime="2024-04-12T08:04:52.177Z" title="发表于 2024-04-12 16:04:52">2024-04-12</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 侯玉东</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/blog/js/utils.js"></script><script src="/blog/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="8873950678" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-heart.min.js" async="async" mobile="false"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener
+  btf.removeGlobalFnEvent('pjax')
+  btf.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/blog/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
